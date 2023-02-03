@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 119px;
+    padding-left: 107px;
+    padding-right: 107px;
+}
+
+.link {
+    color: #000;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    color: #FFFFFF;
+}
+
+.link:hover {
+    background-color: #029847;
+    color: #090909;
+}

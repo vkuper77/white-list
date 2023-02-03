@@ -1,10 +1,15 @@
-import NavBar from '@/src/components/NavBar'
+import About from "@/src/components/About";
+import NavBar from "@/src/components/NavBar";
 
 export default function Home() {
   return (
     <div>
-      <NavBar />
-      <h1>Petition</h1>
+      <div className="header">
+        <NavBar />
+      </div>
+      <div>
+        <About />
+      </div>
     </div>
   )
 }
