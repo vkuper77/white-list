@@ -1,0 +1,129 @@
+.container {
+    margin-top: 482px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.title{
+    font-size: 240px;
+    line-height: 343px;
+    color: #090909;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.small_title{
+    font-size: 60px;
+    line-height: 86px;
+    color: #535252;
+    text-transform: uppercase;
+    margin-bottom: -76px;
+}
+
+.text{
+    font-size: 32px;
+    line-height: 46px;
+    color: #090909;
+    margin-top: 19px;
+}
+
+.button{
+    background-color: #029847;
+    color: #fff;
+    font-size: 98px;
+    line-height: 140px;
+    padding: 0 19px 0 19px;
+    margin-top: -8px;
+}
+
+.button:hover {
+    color: #090909;
+    cursor: pointer;
+}
+
+.header_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    padding: 0 175px 0 190px;
+    margin-top: 75px;
+    height: 1196px;
+}
+
+.main___container__transaction {
+    flex: 3;
+    border-width: 0 3px 0 0;
+    border-color: #090909;
+    border-style: solid;
+}
+
+.main___container__transaction__title {
+    font-size: 32px;
+    line-height: 46px;
+    text-align: right;
+    border-width: 0 0 3px 0;
+    border-color: #090909;
+    border-style: solid;
+    padding: 10px 23px;
+}
+
+.main___container__transaction__text {
+    font-size: 32px;
+    line-height: 46px;
+    text-align: right;
+    padding: 10px 23px;
+}
+
+.main___container__date {
+    flex: 1;
+}
+
+.main___container__date__title {
+    font-size: 32px;
+    line-height: 46px;
+    border-width: 0 0 3px 0;
+    border-color: #090909;
+    border-style: solid;
+    padding: 10px 23px;
+    text-align: left;
+}
+
+.main___container__date__text {
+    font-size: 32px;
+    line-height: 46px;
+    padding: 10px 23px;
+    text-align: left;
+}
+
+.container__notification {
+    border-width: 3px 0 0 0;
+    border-color: #029847;
+    border-style: solid;
+    position: absolute;
+    left: 0;
+    bottom: 371px;
+    padding-left: 100px;
+    padding-top: 8px;
+}
+
+.container__notification__error{
+    border-color: #781010;
+}
+
+.text__notification{
+    font-size: 32px;
+    font-size: 32px;
+    line-height: 46px;
+    color: #029847;
+    text-align: right;
+}
+
+.text__notification__error{
+    color: #781010;
+}

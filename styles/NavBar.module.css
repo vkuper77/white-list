@@ -6,15 +6,16 @@
     padding-top: 119px;
     padding-left: 107px;
     padding-right: 107px;
+    background-color: #090909;
 }
 
 .link {
     color: #000;
-    text-decoration: none;
     font-style: normal;
     font-weight: 400;
     font-size: 60px;
     color: #FFFFFF;
+    padding: 0 3px 0 3px;
 }
 
 .link:hover {
