@@ -1,0 +1,51 @@
+.container{
+    position: absolute;
+    top: 1375px;
+    left: 250px;
+    right: 243px;
+}
+
+.title{
+    font-size: 240px;
+    line-height: 343px;
+    color: white;
+}
+
+.title__black{
+    color: #090909;
+    margin-top: -25px;
+    margin-bottom: 138px;
+}
+
+.exchange{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exchange__button{
+    display: inline-block;
+    background-color: #029847;
+    color: #fff;
+    font-size: 98px;
+    padding: 0 25px 28px 25px;
+}
+
+.exchange__button:hover {
+    color: #090909;
+    cursor: pointer;
+}
+
+.exchange__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.exchange__info__text{
+    display: block;
+    font-size: 48px;
+    line-height: 69px;
+    text-align: right;
+    color: #090909;
+}
