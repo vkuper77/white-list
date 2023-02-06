@@ -2,10 +2,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding-top: 119px;
-    padding-left: 107px;
-    padding-right: 107px;
+    padding-left: 88px;
+    padding-right: 91px;
     background-color: #090909;
 }
 
@@ -15,10 +14,18 @@
     font-weight: 400;
     font-size: 60px;
     color: #FFFFFF;
-    padding: 0 3px 0 3px;
 }
 
 .link:hover {
     background-color: #029847;
     color: #090909;
+}
+
+.indentation__default{
+    margin-left: 31px;
+}
+
+.indentation__specific{
+    margin-left: 100px;
+    margin-right: 100px;
 }

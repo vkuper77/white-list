@@ -10,8 +10,8 @@ const NAV_BAR_PAGES = [
     ]
 
 const NavBar = () => (<ul className={styles.container}>
-                        {NAV_BAR_PAGES.map(page =>
-                            (<li key={page.id}>
+                        {NAV_BAR_PAGES.map((page, idx, arr) =>
+                            (<li key={page.id} className={Boolean(idx) && idx !==  arr.length-1 ? page.id === 4 ? styles.indentation__specific : styles.indentation__default : ''}>
                                 <a href={page.href} className={styles.link}>{page.title}</a>
                             </li>)
                         )}
