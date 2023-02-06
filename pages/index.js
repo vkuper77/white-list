@@ -1,5 +1,6 @@
 import About from "@/src/components/About/About";
 import CashMachine from "@/src/components/Cash Machine/CashMachine";
+import Description from "@/src/components/Description/Description";
 import NavBar from "@/src/components/NavBar/NavBar";
 import Petition from "@/src/components/Petition/Petition";
 import Safe from "@/src/components/Safe/Safe";
@@ -17,6 +18,7 @@ export default function Home() {
           <Safe/>
           <CashMachine/>
         </div>
+        <Description />
       </div>
   )
 }

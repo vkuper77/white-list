@@ -1,0 +1,31 @@
+.conatiner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 52px;
+}
+
+.title{
+    font-size: 240px;
+    line-height: 343px;
+    color: #090909;
+}
+
+.sub__title {
+    font-size: 48px;
+    line-height: 69px;
+    color: #090909;
+    margin-bottom: 75px;
+    margin-top: 85px;
+}
+
+.text{
+    font-size: 35px;
+    line-height: 50px;
+    color: #090909;
+}
+
+.main{
+    margin: 0 222px 0 144px;
+    padding-top: 48px;
+}
