@@ -1,24 +1,108 @@
 .card{
-    background-color: #090909;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding-right: 240px;
+    padding-left:320px;
     color: white;
+    position: relative;
+    margin-bottom: 1387px;
 }
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin-top: 98px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 339px;
+}
+
+.card__left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button{
+    background-color: #029847;
+    color: #fff;
+    font-size: 98px;
+    padding: 0 29px 24px 29px;
+    margin-top: 36px;
+}
+
+.button:hover {
+    color: #090909;
+    cursor: pointer;
+}
+
 .card__right__title{
     font-size: 140px;
     line-height: 200px;
     color: white;
 }
+
 .card__title{
     font-weight: 400;
     font-size: 240px;
     line-height: 343px;
     color: white;
 }
+
 .card__subtitle{
     font-size: 48px;
     line-height: 69px;
     color: white;
+    text-align: right;
+}
+
+.text__balance{
+    text-align: center;
+}
+
+.ellipse__header{
+    height: 548px;
+    border-radius: 50%;
+    background-color: #090909;
+    position: absolute;
+    right: -16px;
+    left: -16px;
+    z-index: -1;
+    top: -84px;
+}
+
+.ellipse__footer__left{
+    border-radius: 50%;
+    position: absolute;
+    width: 1179.76px;
+    height: 814.11px;
+    left: -61.06px;
+    top: 908px;
+    background: #090909;
+    transform: rotate(0.35deg);
+    z-index: -1;
+}
+
+.background__card {
+    position: absolute;
+    top: 181px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background: #090909;
+}
+
+.ellipse__footer__right{
+    border-radius: 50%;
+    position: absolute;
+    width: 1312.2px;
+    height: 681.08px;
+    left: 741.89px;
+    top: 884px;
+    background: #090909;
+    transform: rotate(-19.05deg);
+    z-index: -1;
 }
