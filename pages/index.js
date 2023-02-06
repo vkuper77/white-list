@@ -1,16 +1,14 @@
 import About from "@/src/components/About/About";
 import CashMachine from "@/src/components/Cash Machine/CashMachine";
 import Description from "@/src/components/Description/Description";
+import Form from "@/src/components/Form/Form";
 import NavBar from "@/src/components/NavBar/NavBar";
 import Petition from "@/src/components/Petition/Petition";
 import Safe from "@/src/components/Safe/Safe";
-import { Quantico } from '@next/font/google'
-
-const quantico = Quantico({subsets: ['latin'], weight: '400' })
 
 export default function Home() {
   return (
-      <div className={`wrapper ${quantico.className}`}>
+      <div className='wrapper'>
         <NavBar />
         <About />
         <Petition />
@@ -19,6 +17,7 @@ export default function Home() {
           <CashMachine/>
         </div>
         <Description />
+        <Form />
       </div>
   )
 }

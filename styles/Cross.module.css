@@ -1,0 +1,21 @@
+.container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wand{
+    height: 4px;
+    width: 36px;
+    background-color: white;
+    position: absolute;
+}
+
+.first{
+    transform: rotate(45deg);
+}
+
+.second{
+    transform: rotate(135deg);
+}
