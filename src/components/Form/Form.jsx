@@ -2,6 +2,7 @@ import styles from "@/styles/Form.module.css"
 import Cross from "../UI/Cross"
 
 const Form = () => {
+    return null
     return <div className={styles.container}>
             <form className={styles.form__container}>
                 <div className={styles.cross}>
