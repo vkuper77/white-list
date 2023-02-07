@@ -1,5 +1,6 @@
 import Web3 from "web3";
 
+/** Native get provider */
 export async function detectEthereumProvider() {
     let provider = null
     if(window.ethereum) {
