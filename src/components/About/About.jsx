@@ -1,8 +1,7 @@
 import styles from "@/styles/About.module.css"
 
 const About = () => {
-    return (
-            <div id="connect_wallet" className={styles.container}>
+    return (<div id="connect_wallet" className={styles.container}>
                 <div>
                     <h1 className={styles.title}>Whitelist</h1>
                     <p className={styles.text}>Give yourself a chance to win the sacred NFT.</p>

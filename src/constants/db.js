@@ -4,4 +4,3 @@ export const DESCRIPTION = [
     {id: 2, title: 'Safe', text: 'A user can add his tokens to the smart-contract which locks them for a week. When one does it, a timer appears and shows the days countdown. After the timer finishes, the user will be able to get his money back.'},
     {id: 3, title: 'Cash Machine', text: 'A user is able to exchange his tokens to USDT at a fixed rate. The smart-contract simply takes person’s tokens and gives him a respective amount of USDT. (Optional: by clicking the exchange button one opens a window where he can only set the amount of tokens to swap and then see the respective USDT amount)'},
 ]
-
