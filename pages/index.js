@@ -15,8 +15,12 @@ export default function Home() {
 
   useEffect(() => {
     async function getAccounts() {
-      const [ score ] = await web3.eth.getAccounts()
-      setAccount(score)
+      try{
+        const [ score ] = await web3.eth.getAccounts()
+        setAccount(score)
+      } catch{
+        console.error('Failed to get wallet')
+      }
     }
     Boolean(web3) && getAccounts()
   }, [web3])

@@ -1,7 +1,6 @@
 import styles from "@/styles/Petition.module.css"
 
 const HeaderPetition = () => {
-
     return <>
             <div className={styles.header_container}>
                 <p className={styles.small_title}>public</p>
