@@ -7,16 +7,15 @@ export default function App({ Component, pageProps }) {
   const {web3} = useLoadProvider()
 
   useEffect(() => {
-    async function getAccounts() {
+    Boolean(web3) && (async () => {
       try{
         const [ score ] = await web3.eth.getAccounts()
         setAccount(score)
       } catch{
         console.error('Failed to get wallet')
       }
-    }
-    Boolean(web3) && getAccounts()
-  }, [web3])
+    })()
+  }, [web3])  
 
   console.log(account)
  
