@@ -6,15 +6,22 @@ import NavBar from "@/src/components/NavBar/NavBar";
 import Petition from "@/src/components/Petition/Petition";
 import Safe from "@/src/components/Safe/Safe";
 import useLoadProvider from "@/src/hooks/use-load-provider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
+  const [account, setAccount] = useState(null)
+  const {web3} = useLoadProvider()
 
-  const provider = useLoadProvider()
+  useEffect(() => {
+    async function getAccounts() {
+      const [ score ] = await web3.eth.getAccounts()
+      setAccount(score)
+    }
+    Boolean(web3) && getAccounts()
+  }, [web3])
 
- 
-    console.log(provider) 
+  console.log(account)
  
   
   return (

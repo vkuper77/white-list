@@ -1,15 +1,6 @@
 import styles from "@/styles/Petition.module.css"
-import { useEffect } from "react";
 
 const HeaderPetition = () => {
-
-    useEffect(() => {
-        function loadProvider(){
-        
-         }
-     
-         loadProvider()
-       }, [])
 
     return <>
             <div className={styles.header_container}>
