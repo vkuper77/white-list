@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   const {web3} = useLoadProvider()
 
   useEffect(() => {
-    Boolean(web3) && (async () => {
+    !!web3 && (async () => {
       try{
         const [ score ] = await web3.eth.getAccounts()
         setAccount(score)
