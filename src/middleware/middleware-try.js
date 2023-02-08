@@ -1,4 +1,4 @@
-export async function attempt (request, handlerError = () => {}) {
+export async function middlewareTry (request, handlerError = () => {}) {
     try {
        const response = await request
        return response

@@ -1,7 +1,8 @@
 import useLoadProvider from "@/src/hooks/use-load-provider";
 import { useEffect, useState, createContext } from "react";
 import { accountListener } from "../utils/account-listener";
-import { attempt } from "../utils/error-listener";
+import { middlewareTry } from "../middleware/middleware-try";
+import { middlewareProvider } from "../middleware/middleware-provider";
 
 export const AppContext = createContext(null)
 
@@ -22,8 +23,8 @@ export function AppProvider({children}) {
 
   useEffect(() => {
     !!web3 && (async () => {
-        const [ acc ] = await attempt(web3.eth.getAccounts())
-        const contractBalance = await attempt(web3.eth.getBalance(contract.address))
+        const [ acc ] = await middlewareTry(web3.eth.getAccounts())
+        const contractBalance = await middlewareTry(web3.eth.getBalance(contract.address))
         setAccount(acc)
         setBalance(web3.utils.fromWei(contractBalance, 'ether'))
     })()
@@ -31,28 +32,36 @@ export function AppProvider({children}) {
 
   useEffect(() => {
     !!web3 && (async () => {
-      const value = await attempt(web3.eth.getBalance(contract.address))
+      const value = await middlewareTry(web3.eth.getBalance(contract.address))
       !!value && setBalance(web3.utils.fromWei(value, 'ether'))
     })()
   }, [shouldReload])
 
   async function recordInWhiteList() {
-      await attempt(contract.recordInWhiteList({from: account}))
+      await middlewareTry(contract.recordInWhiteList({from: account}))
   }
 
   async function sign() {
-    await attempt(contract.doSign({from: account}))
+    await middlewareTry(contract.doSign({from: account}))
   }
 
   async function add(){
-      await attempt(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
+      await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
       reloadEffect()
   }
 
   async function getFromSafe(){
-    await attempt(contract.getFromSafe({from: account}))
+    await middlewareTry(contract.getFromSafe({from: account}))
     reloadEffect()
   }
 
-    return <AppContext.Provider value={{recordInWhiteList, sign, add, getFromSafe, balance }}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{
+            recordInWhiteList: middlewareProvider(Boolean(provider) && recordInWhiteList), 
+            sign: middlewareProvider(Boolean(provider) && sign), 
+            add: middlewareProvider(Boolean(provider) && add), 
+            getFromSafe: middlewareProvider(Boolean(provider) && getFromSafe), 
+            balance 
+          }}>
+            {children}
+        </AppContext.Provider>
 }
