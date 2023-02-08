@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { detectProvider } from "../utils/detect-provider";
+import { detectProvider } from "@/src/utils/detect-provider";
 
 const initState = {
     provider: null,
