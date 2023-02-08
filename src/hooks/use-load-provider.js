@@ -16,7 +16,7 @@ export default function useLoadProvider() {
         async function loadProvider() {
             const provider = await middlewareTry(detectEthereumProvider())
             if(Boolean(provider)) {
-                const contract = await middlewareTry(loadContract('Main', provider))
+                const contract = await loadContract('Main', provider)
                 await middlewareTry(provider.request({method: 'eth_requestAccounts'}))
                 setWeb3Api({provider, contract, web3: new Web3(provider)})
             } else{
