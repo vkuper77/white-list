@@ -1,17 +1,19 @@
 import { AppContext } from './context'
+import { useSelector, useDispatch } from 'react-redux'
 import useLoadProvider from "@/src/hooks/use-load-provider";
 import { useCallback, useEffect, useState } from "react";
 import { accountListener } from '@/src/utils/account-listener';
 import { middlewareTry } from "@/src/middleware/middleware-try";
 import { middlewareProvider } from "@/src/middleware/middleware-provider";
 import { middlewareContract } from "@/src/middleware/middleware-contract";
+import { setBalance, setAccount } from '@/src/store/slice/appSlice';
 
 export default function AppProvider({children}) {
-  const [account, setAccount] = useState(null)
-  const [balance, setBalance] = useState(0)
   const [shouldReload, reload] = useState(false)
-
+  const { account } = useSelector((state)=> state)
+  
   const {web3, provider, contract, coldBoot} = useLoadProvider()
+  const dispatch = useDispatch()
 
   function reloadEffect () {
     reload(p => !p)
@@ -25,15 +27,15 @@ export default function AppProvider({children}) {
     !!web3 && middlewareContract(!!contract && (async () => {
         const [ acc ] = await middlewareTry(web3.eth.getAccounts())
         const contractBalance = await middlewareTry(web3.eth.getBalance(contract.address))
-        setAccount(acc)
-        setBalance(web3.utils.fromWei(contractBalance, 'ether'))
+        dispatch(setAccount(acc))
+        dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
     }))()
   }, [web3])
 
   useEffect(() => {
     !!web3 && middlewareContract(!!contract &&(async () => {
       const value = await middlewareTry(web3.eth.getBalance(contract.address))
-      !!value && setBalance(web3.utils.fromWei(value, 'ether'))
+      !!value && dispatch(setBalance(web3.utils.fromWei(value, 'ether')))
     }))()
   }, [shouldReload])
 
@@ -63,8 +65,7 @@ export default function AppProvider({children}) {
             recordInWhiteList: middlewareDapp(recordInWhiteList), 
             sign: middlewareDapp(sign), 
             add: middlewareDapp(add), 
-            getFromSafe: middlewareDapp(getFromSafe), 
-            balance 
+            getFromSafe: middlewareDapp(getFromSafe)
           }}>
             {children}
         </AppContext.Provider>
