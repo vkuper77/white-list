@@ -1,20 +1,11 @@
-import { AppContext } from "@/src/context/app-context"
-import styles from "@/styles/Petition.module.css"
-import { useContext } from "react"
+import { AppContext } from "@/src/context/app/context"
+import { useContext, useCallback } from "react"
+import ExpensiveConten from "./ExpensiveConten"
 
 const HeaderPetition = () => {
     const {sign} = useContext(AppContext)
-    return <>
-            <div className={styles.header_container}>
-                <p className={styles.small_title}>public</p>
-                <h1 className={styles.title}>petition</h1>
-                <a onClick={sign} className={styles.button}>sign</a>
-                <p className={styles.text}>signs quantity: 1</p>
-            </div>
-        </> 
+    const collback = useCallback(sign, [sign])
+    return <ExpensiveConten collback={collback}/>
 }
 
 export default HeaderPetition
-
- // const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
- // console.log(accounts)
