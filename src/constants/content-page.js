@@ -1,3 +1,11 @@
+export const NAV_BAR_PAGES = [
+    {id: 1, title: 'petition', href: '#petition'}, 
+    {id: 2, title: 'cash machine', href: '#cash_machine'},
+    {id: 3, title: 'connect wallet', href: '#connect_wallet'},
+    {id: 4, title: 'safe', href: '#safe'},
+    {id: 5, title: 'description', href: '#description'}
+]
+
 export const DESCRIPTION = [
     {id: 0, title: 'Whitelist', text: 'A user connects the wallet and pushes the button “participate”. The smart-contract adds his public key to the list in the system when a gas fee is paid.'},
     {id: 1, title: 'Petition', text: 'A user can also sign the petition. The process is same to the previous one but this time the user’s public key is added to the list of “signs” which is shown on the page.'},
