@@ -46,12 +46,12 @@ export function AppProvider({children}) {
     await middlewareTry(contract.doSign({from: account}))
   }
 
-  async function add(){
+  async function add() {
     await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
     reloadEffect()
   }
 
-  async function getFromSafe(){
+  async function getFromSafe() {
     await middlewareTry(contract.getFromSafe({from: account}))
     reloadEffect()
   }

@@ -9,12 +9,13 @@ const NAV_BAR_PAGES = [
     {id: 5, title: 'description', href: '#description'}
     ]
 
-const NavBar = () => (<ul className={styles.container}>
+const NavBar = () => {
+    return (<ul className={styles.container}>
                         {NAV_BAR_PAGES.map((page, idx, arr) =>
                             (<li key={page.id} className={Boolean(idx) && idx !==  arr.length-1 ? page.id === 4 ? styles.indentation__specific : styles.indentation__default : ''}>
                                 <a href={page.href} className={styles.link}>{page.title}</a>
                             </li>)
                         )}
-                     </ul>)
+                     </ul>)}
 
 export default NavBar 
