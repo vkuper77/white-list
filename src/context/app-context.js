@@ -3,6 +3,7 @@ import { useEffect, useState, createContext } from "react";
 import { accountListener } from "../utils/account-listener";
 import { middlewareTry } from "../middleware/middleware-try";
 import { middlewareProvider } from "../middleware/middleware-provider";
+import { middlewareContract } from "../middleware/middleware-contract";
 
 export const AppContext = createContext(null)
 
@@ -22,19 +23,19 @@ export function AppProvider({children}) {
   }, [provider])
 
   useEffect(() => {
-    !!web3 && (async () => {
+    !!web3 && middlewareContract(!!contract && (async () => {
         const [ acc ] = await middlewareTry(web3.eth.getAccounts())
         const contractBalance = await middlewareTry(web3.eth.getBalance(contract.address))
         setAccount(acc)
         setBalance(web3.utils.fromWei(contractBalance, 'ether'))
-    })()
+    }))()
   }, [web3])
 
   useEffect(() => {
-    !!web3 && (async () => {
+    !!web3 && middlewareContract(!!contract &&(async () => {
       const value = await middlewareTry(web3.eth.getBalance(contract.address))
       !!value && setBalance(web3.utils.fromWei(value, 'ether'))
-    })()
+    }))()
   }, [shouldReload])
 
   async function recordInWhiteList() {
@@ -55,11 +56,15 @@ export function AppProvider({children}) {
     reloadEffect()
   }
 
+  function middlewareDapp(callback) {
+    return middlewareContract(!!contract && middlewareProvider(!!provider && callback))
+  }
+
   return <AppContext.Provider value={{
-            recordInWhiteList: middlewareProvider(Boolean(provider) && recordInWhiteList), 
-            sign: middlewareProvider(Boolean(provider) && sign), 
-            add: middlewareProvider(Boolean(provider) && add), 
-            getFromSafe: middlewareProvider(Boolean(provider) && getFromSafe), 
+            recordInWhiteList: middlewareDapp( recordInWhiteList), 
+            sign: middlewareDapp(sign), 
+            add: middlewareDapp(add), 
+            getFromSafe: middlewareDapp(getFromSafe), 
             balance 
           }}>
             {children}
