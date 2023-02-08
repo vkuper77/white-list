@@ -9,17 +9,17 @@ export const AppContext = createContext(null)
 
 export function AppProvider({children}) {
   const [account, setAccount] = useState(null)
-  const [balance, setBalance] =useState(0)
+  const [balance, setBalance] = useState(0)
   const [shouldReload, reload] = useState(false)
 
-  const {web3, provider, contract} = useLoadProvider()
+  const {web3, provider, contract, coldBoot} = useLoadProvider()
 
   function reloadEffect () {
     reload(p => !p)
   }
 
   useEffect(() => {
-    !!provider && accountListener(provider, setAccount)
+    !!provider && accountListener(provider, coldBoot)
   }, [provider])
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function AppProvider({children}) {
   }, [shouldReload])
 
   async function recordInWhiteList() {
-      await middlewareTry(contract.recordInWhiteList({from: account}))
+    await middlewareTry(contract.recordInWhiteList({from: account}))
   }
 
   async function sign() {
@@ -47,8 +47,8 @@ export function AppProvider({children}) {
   }
 
   async function add(){
-      await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
-      reloadEffect()
+    await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
+    reloadEffect()
   }
 
   async function getFromSafe(){
@@ -61,7 +61,7 @@ export function AppProvider({children}) {
   }
 
   return <AppContext.Provider value={{
-            recordInWhiteList: middlewareDapp( recordInWhiteList), 
+            recordInWhiteList: middlewareDapp(recordInWhiteList), 
             sign: middlewareDapp(sign), 
             add: middlewareDapp(add), 
             getFromSafe: middlewareDapp(getFromSafe), 
