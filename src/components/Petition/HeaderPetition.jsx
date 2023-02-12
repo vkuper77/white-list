@@ -7,7 +7,7 @@ const HeaderPetition = () => {
     const { isSigned } = useSelector((state)=> state)
     const {sign} = useContext(AppContext)
     const collback = useCallback(() => {!isSigned && sign()} , [sign, isSigned])
-    return <ExpensiveConten collback={collback}/>
+    return <ExpensiveConten collback={collback} isSigned={isSigned}/>
 }
 
 export default HeaderPetition

@@ -13,7 +13,7 @@ export default function AppProvider({children}) {
   const { account } = useSelector((state)=> state)
   
   const {web3, provider, contract, coldBoot} = useLoadProvider()
-  const {recordInWhiteList, sign, add, getFromSafe} = useMethods(contract, web3, provider, reloadEffect)
+  const mehods = useMethods(contract, web3, provider, reloadEffect)
   const dispatch = useDispatch()
 
   function reloadEffect () {
@@ -53,7 +53,7 @@ export default function AppProvider({children}) {
     }))()
   }, [shouldReload])
 
-  return <AppContext.Provider value={{recordInWhiteList, sign, add, getFromSafe}}>
+  return <AppContext.Provider value={mehods}>
             {children}
         </AppContext.Provider>
 }
