@@ -6,7 +6,7 @@ import AboutExpensiveConten from "./AboutExpensiveContent"
 const About = () => {
     const { isRecordedWhiteList } = useSelector((state)=> state)
     const { recordInWhiteList } = useContext(AppContext)
-    const collback = useCallback(() => { !isRecordedWhiteList && recordInWhiteList() }, [recordInWhiteList])
+    const collback = useCallback(() => { !isRecordedWhiteList && recordInWhiteList() }, [recordInWhiteList, isRecordedWhiteList])
     return <AboutExpensiveConten collback={collback} isRecordedWhiteList={isRecordedWhiteList}/>
 } 
 
