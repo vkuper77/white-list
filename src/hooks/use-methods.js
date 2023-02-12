@@ -6,7 +6,7 @@ import { middlewareContract } from "../middleware/middleware-contract";
 import { middlewareProvider } from "../middleware/middleware-provider";
 
 export default function useMethods(contract, web3, provider, callback) {
-    const { account } = useSelector((state)=> state)
+    const { account, isSigned } = useSelector((state)=> state)
     const dispatch = useDispatch()
 
     const recordInWhiteList = useCallback(async () => {
@@ -26,14 +26,22 @@ export default function useMethods(contract, web3, provider, callback) {
       }, [contract, account])
     
       const add = useCallback(async () => {
+        if(!isSigned) {
+          middlewareDapp(sign)()
+          return
+        }
         await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
         callback()
-      }, [contract, account, web3])
+      }, [contract, account, web3, isSigned])
     
       const getFromSafe = useCallback(async () => {
+        if(!isSigned) {
+          middlewareDapp(sign)()
+          return
+        }
         await middlewareTry(contract.getFromSafe({from: account}))
         callback()
-      }, [contract, account])
+      }, [contract, account, isSigned])
     
       const middlewareDapp = useCallback((callback) => {
         return middlewareContract(!!contract && middlewareProvider(!!provider && callback))
