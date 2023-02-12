@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { AppContext } from './context'
 import { useSelector, useDispatch } from 'react-redux'
 import useLoadProvider from "@/src/hooks/use-load-provider";
-import { useCallback, useEffect, useState } from "react";
+import useMethods from '@/src/hooks/use-methods';
 import { accountListener } from '@/src/utils/account-listener';
 import { middlewareTry } from "@/src/middleware/middleware-try";
-import { middlewareProvider } from "@/src/middleware/middleware-provider";
 import { middlewareContract } from "@/src/middleware/middleware-contract";
 import { setBalance, setAccount, setIsRecordedAccount, setIsSigned } from '@/src/store/slice/appSlice';
 
@@ -13,6 +13,7 @@ export default function AppProvider({children}) {
   const { account } = useSelector((state)=> state)
   
   const {web3, provider, contract, coldBoot} = useLoadProvider()
+  const {recordInWhiteList, sign, add, getFromSafe} = useMethods(contract, web3, provider, reloadEffect)
   const dispatch = useDispatch()
 
   function reloadEffect () {
@@ -52,42 +53,7 @@ export default function AppProvider({children}) {
     }))()
   }, [shouldReload])
 
-  const recordInWhiteList = useCallback(async () => {
-    await middlewareTry(contract.recordInWhiteList({from: account}))
-    const isRecordedAccount = await middlewareTry(contract.isRecordedWhiteList({from: account}))
-    dispatch(setIsRecordedAccount(isRecordedAccount))
-  }, [contract, account])
-
-  const sign = useCallback(async () => {
-    await middlewareTry(contract.doSign({from: account}))
-    const [isSignedAccount, isRecordedAccount] = await Promise.all([
-      middlewareTry(contract.isSigned({from: account})),
-      middlewareTry(contract.isRecordedWhiteList({from: account}))
-    ])
-    dispatch(setIsSigned(isSignedAccount))
-    dispatch(setIsRecordedAccount(isRecordedAccount))
-  }, [contract, account])
-
-  const add = useCallback(async () => {
-    await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
-    reloadEffect()
-  }, [contract, account, web3])
-
-  const getFromSafe = useCallback(async () => {
-    await middlewareTry(contract.getFromSafe({from: account}))
-    reloadEffect()
-  }, [contract, account])
-
-  const middlewareDapp = useCallback((callback) => {
-    return middlewareContract(!!contract && middlewareProvider(!!provider && callback))
-  }, [contract, provider])
-
-  return <AppContext.Provider value={{
-            recordInWhiteList: middlewareDapp(recordInWhiteList), 
-            sign: middlewareDapp(sign), 
-            add: middlewareDapp(add), 
-            getFromSafe: middlewareDapp(getFromSafe)
-          }}>
+  return <AppContext.Provider value={{recordInWhiteList, sign, add, getFromSafe}}>
             {children}
         </AppContext.Provider>
 }
