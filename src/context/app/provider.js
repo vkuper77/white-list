@@ -6,7 +6,7 @@ import { accountListener } from '@/src/utils/account-listener';
 import { middlewareTry } from "@/src/middleware/middleware-try";
 import { middlewareProvider } from "@/src/middleware/middleware-provider";
 import { middlewareContract } from "@/src/middleware/middleware-contract";
-import { setBalance, setAccount, setIsRecordedAccount } from '@/src/store/slice/appSlice';
+import { setBalance, setAccount, setIsRecordedAccount, setIsSigned } from '@/src/store/slice/appSlice';
 
 export default function AppProvider({children}) {
   const [shouldReload, reload] = useState(false)
@@ -24,28 +24,31 @@ export default function AppProvider({children}) {
   }, [provider])
 
   useEffect(() => {
+    !!contract && !!account && (async () => {
+      const [isRecordedAccount, isSignedAccount] = await Promise.all([
+        middlewareTry(contract.isRecordedWhiteList({from: account})), 
+        middlewareTry(contract.isSigned({from: account}))
+      ])
+        dispatch(setIsRecordedAccount(isRecordedAccount))
+        dispatch(setIsSigned(isSignedAccount))
+    })() 
+}, [account])
+
+  useEffect(() => {
     !!web3 && middlewareContract(!!contract && (async () => {
-        const [ acc ] = await middlewareTry(web3.eth.getAccounts())
-        const contractBalance = await middlewareTry(web3.eth.getBalance(contract.address))
-        const isRecordedAccount = await middlewareTry(contract.isRecordedWhiteList({from: account}))
-        
+        const [[ acc ], contractBalance] = await Promise.all([
+          middlewareTry(web3.eth.getAccounts()),
+          middlewareTry(web3.eth.getBalance(contract.address))
+        ])
         dispatch(setAccount(acc))
         dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
-        dispatch(setIsRecordedAccount(isRecordedAccount))
     }))()
   }, [web3])
 
   useEffect(() => {
     !!web3 && middlewareContract(!!contract &&(async () => {
-
-      const [value, isRecordedAccount] = await Promise.all([
-        middlewareTry(web3.eth.getBalance(contract.address)),
-        middlewareTry(contract.isRecordedWhiteList({from: account}))
-      ])
-
-      dispatch(setIsRecordedAccount(isRecordedAccount))
+      const value = await middlewareTry(web3.eth.getBalance(contract.address))
       !!value && dispatch(setBalance(web3.utils.fromWei(value, 'ether')))
-      
     }))()
   }, [shouldReload])
 
@@ -57,6 +60,12 @@ export default function AppProvider({children}) {
 
   const sign = useCallback(async () => {
     await middlewareTry(contract.doSign({from: account}))
+    const [isSignedAccount, isRecordedAccount] = await Promise.all([
+      middlewareTry(contract.isSigned({from: account})),
+      middlewareTry(contract.isRecordedWhiteList({from: account}))
+    ])
+    dispatch(setIsSigned(isSignedAccount))
+    dispatch(setIsRecordedAccount(isRecordedAccount))
   }, [contract, account])
 
   const add = useCallback(async () => {

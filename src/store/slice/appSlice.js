@@ -20,9 +20,12 @@ export const appSlice = createSlice({
       },
       setIsRecordedAccount: (state, action) => {
         state.isRecordedWhiteList = action.payload
-      }
+      },
+      setIsSigned: (state, action) => {
+        state.isSigned = action.payload
+      },
     },
   })
   
-export const { setBalance, setAccount, setIsRecordedAccount } = appSlice.actions
+export const { setBalance, setAccount, setIsRecordedAccount, setIsSigned } = appSlice.actions
 export default appSlice.reducer
