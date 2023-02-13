@@ -107,3 +107,11 @@
     transform: rotate(-19.05deg);
     z-index: -1;
 }
+
+.button__disabled{
+    background-color: grey;
+}
+
+.button__disabled:hover{
+    cursor: wait;
+}

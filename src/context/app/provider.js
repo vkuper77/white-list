@@ -6,7 +6,7 @@ import useMethods from '@/src/hooks/use-methods';
 import { accountListener } from '@/src/utils/account-listener';
 import { middlewareTry } from "@/src/middleware/middleware-try";
 import { middlewareContract } from "@/src/middleware/middleware-contract";
-import { setBalance, setAccount, setIsRecordedAccount, setIsSigned, setAddresses } from '@/src/store/slice/appSlice';
+import { setBalance, setAccount, setIsRecordedAccount, setIsSigned, setAddresses, setTimeLeft } from '@/src/store/slice/appSlice';
 
 export default function AppProvider({children}) {
   const [shouldReload, reload] = useState(false)
@@ -26,14 +26,16 @@ export default function AppProvider({children}) {
 
   useEffect(() => {
     !!contract && (async () => {
-      const [isRecordedAccount, isSignedAccount, addresses] = await Promise.all([
+      const [isRecordedAccount, isSignedAccount, addresses, time] = await Promise.all([
         account && middlewareTry(contract.isRecordedWhiteList({from: account})), 
         account && middlewareTry(contract.isSigned({from: account})),
-        middlewareTry(contract.getSigns(), () => [])
+        middlewareTry(contract.getSigns(), () => []),
+        middlewareTry(contract.checkSafe(), () => []),
       ])
         dispatch(setIsRecordedAccount(isRecordedAccount))
         dispatch(setIsSigned(isSignedAccount))
         dispatch(setAddresses(addresses))
+        dispatch(setTimeLeft(time))
     })() 
 }, [account, web3])
 
@@ -50,11 +52,13 @@ export default function AppProvider({children}) {
 
   useEffect(() => {
     !!web3 && middlewareContract(!!contract &&(async () => {
-      const [contractBalance, addresses] = await Promise.all([
+      const [contractBalance, addresses, time] = await Promise.all([
         middlewareTry(web3.eth.getBalance(contract.address)),
-        middlewareTry(contract.getSigns())
+        middlewareTry(contract.getSigns(), () => []),
+        middlewareTry(contract.checkSafe(), () => []),
       ])
-      dispatch(setAddresses(addresses)) 
+      dispatch(setAddresses(addresses))
+      dispatch(setTimeLeft(time)) 
       !!contractBalance && dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
     }))()
   }, [shouldReload]) 

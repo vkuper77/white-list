@@ -5,7 +5,9 @@ const initialState = {
   balance: 0,
   isSigned: false,
   isRecordedWhiteList: false,
-  addresses: []
+  addresses: [],
+  timeLeft: [],
+  isLockedButton: false
 }
 
 export const appSlice = createSlice({
@@ -26,9 +28,15 @@ export const appSlice = createSlice({
       },
       setAddresses: (state, action) => {
         state.addresses = action.payload
-      }
+      },
+      setTimeLeft: (state, action) => {
+        state.timeLeft = action.payload
+      },
+      setLockedButton: (state, action) => {
+        state.isLockedButton = action.payload
+      },
     },
   })
   
-export const { setBalance, setAccount, setIsRecordedAccount, setIsSigned, setAddresses } = appSlice.actions
+export const { setBalance, setAccount, setIsRecordedAccount, setIsSigned, setAddresses, setTimeLeft, setLockedButton } = appSlice.actions
 export default appSlice.reducer
