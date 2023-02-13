@@ -12,7 +12,7 @@ export async function loadContract (name, provider) {
     try{
         deployedContract = await _contract.deployed()
     } catch {
-        console.error('You are connected to the wrong network')
+        console.warn('You are connected to the wrong network')
     }
 
     return deployedContract

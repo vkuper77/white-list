@@ -10,10 +10,17 @@ export default function useMethods(contract, web3, provider, callback) {
     const dispatch = useDispatch()
 
     const recordInWhiteList = useCallback(async () => {
+        if(!account) {
+          try {
+            await provider.request({method: 'eth_requestAccounts'})
+          } catch {
+            return alert('Wallet is not detected!')
+          }
+        }
         await middlewareTry(contract.recordInWhiteList({from: account}))
         const isRecordedAccount = await middlewareTry(contract.isRecordedWhiteList({from: account}))
         dispatch(setIsRecordedAccount(isRecordedAccount))
-      }, [contract, account])
+      }, [contract, account, provider])
     
       const sign = useCallback(async () => {
         await middlewareTry(contract.doSign({from: account}))
@@ -30,7 +37,7 @@ export default function useMethods(contract, web3, provider, callback) {
       const add = useCallback(async (quantity) => {
         if(!isSigned) {
           middlewareDapp(sign)()
-          return
+          return alert('Wallet is not detected!')
         }
         await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
         callback()
@@ -39,9 +46,11 @@ export default function useMethods(contract, web3, provider, callback) {
       const getFromSafe = useCallback(async () => {
         if(!isSigned) {
           middlewareDapp(sign)()
-          return
+          return alert('Wallet is not detected!')
         }
-        await middlewareTry(contract.getFromSafe({from: account}))
+        await middlewareTry(contract.getFromSafe({from: account}), () => {
+          alert('Wallet is not detected!')
+        })
         callback()
       }, [contract, account, isSigned])
     

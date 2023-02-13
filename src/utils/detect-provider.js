@@ -10,6 +10,6 @@ export async function detectProvider(callback) {
         await middlewareTry(provider.request({method: 'eth_requestAccounts'}))
         callback({provider, contract, web3: new Web3(provider)})
      } else{
-         console.error("User denied accounts access!")
+         console.warn("User denied accounts access!")
      }
  }
