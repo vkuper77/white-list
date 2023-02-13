@@ -4,10 +4,10 @@ import { useContext, useCallback } from "react"
 import ExpensiveConten from "./ExpensiveConten"
 
 const HeaderPetition = () => {
-    const { isSigned } = useSelector((state)=> state)
+    const { isSigned, addresses } = useSelector((state)=> state)
     const {sign} = useContext(AppContext)
     const collback = useCallback(() => {!isSigned && sign()} , [sign, isSigned])
-    return <ExpensiveConten collback={collback} isSigned={isSigned}/>
+    return <ExpensiveConten collback={collback} isSigned={isSigned} addresses={addresses}/>
 }
 
 export default HeaderPetition

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsRecordedAccount, setIsSigned } from '@/src/store/slice/appSlice';
+import { setIsRecordedAccount, setIsSigned, setAddresses } from '@/src/store/slice/appSlice';
 import { middlewareTry } from "../middleware/middleware-try";
 import { middlewareContract } from "../middleware/middleware-contract";
 import { middlewareProvider } from "../middleware/middleware-provider";
@@ -17,12 +17,14 @@ export default function useMethods(contract, web3, provider, callback) {
     
       const sign = useCallback(async () => {
         await middlewareTry(contract.doSign({from: account}))
-        const [isSignedAccount, isRecordedAccount] = await Promise.all([
+        const [isSignedAccount, isRecordedAccount, addresses] = await Promise.all([
           middlewareTry(contract.isSigned({from: account})),
-          middlewareTry(contract.isRecordedWhiteList({from: account}))
+          middlewareTry(contract.isRecordedWhiteList({from: account})),
+          middlewareTry(contract.getSigns())
         ])
         dispatch(setIsSigned(isSignedAccount))
         dispatch(setIsRecordedAccount(isRecordedAccount))
+        dispatch(setAddresses(addresses))
       }, [contract, account])
     
       const add = useCallback(async () => {

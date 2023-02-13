@@ -24,8 +24,11 @@ export const appSlice = createSlice({
       setIsSigned: (state, action) => {
         state.isSigned = action.payload
       },
+      setAddresses: (state, action) => {
+        state.addresses = action.payload
+      }
     },
   })
   
-export const { setBalance, setAccount, setIsRecordedAccount, setIsSigned } = appSlice.actions
+export const { setBalance, setAccount, setIsRecordedAccount, setIsSigned, setAddresses } = appSlice.actions
 export default appSlice.reducer
