@@ -7,20 +7,29 @@ import WalletExpensiveConten from "./WalletExpensiveConten"
 
 const Wallet = () => {
     const [isVisible, setIsVisible] = useState(false)
-    const { balance } = useSelector((state) => state)
-    const { addEth } = useContext(AppContext)
+    const { balance, timeLeft, isLockedButton } = useSelector((state) => state)
+    const { addEth, getFromSafe } = useContext(AppContext)
+
+    const getSafe = useCallback(getFromSafe, [getFromSafe])
 
     const handlerClick = useCallback((e) => {
         e.target.dataset.action === 'close' && setIsVisible(false)
-    }, []) 
+    }, [isLockedButton]) 
 
     const handlerCallback = useCallback((v) => {
         addEth(v)
         setIsVisible(false)
-    }, [addEth]) 
+    }, [addEth])
+    
+    const handlerTransaction = () => {
+        !Boolean(timeLeft['amount']) ? setIsVisible(true) : getSafe
+    }
 
     return <>
-                <WalletExpensiveConten callback={() => {setIsVisible(true)}} balance={balance}/>
+                <WalletExpensiveConten 
+                    callback={handlerTransaction} 
+                    balance={balance} 
+                />
                 <Modal isVisible={isVisible} callback={handlerClick}> 
                     <Form isFormSafe callback={handlerCallback} /> 
                 </Modal>
