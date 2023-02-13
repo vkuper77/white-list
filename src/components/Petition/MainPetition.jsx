@@ -1,20 +1,27 @@
 import styles from "@/styles/Petition.module.css"
+import { useSelector } from 'react-redux'
+import moment from "moment/moment"
 import Notification from "./Notification"
 
 const MainPetition = () => {
+    const { addresses } = useSelector((state)=> state)
     return <>
             <div className={styles.main}>
                 <div className={styles.main___container__transaction}>
                     <p className={styles.main___container__transaction__title}>address</p>
-                    <div>
-                        <p className={styles.main___container__transaction__text}>0x6aEEb47CC03681c46e6A497187B86D846751dc77</p>
-                    </div>
+                    <ul>
+                        {addresses.map((addr) => {
+                            return <li key={addr['from']} className={styles.main___container__transaction__text}>{addr['from']}</li>
+                        })}
+                    </ul>
                 </div>
                 <div className={styles.main___container__date}>
                     <p className={styles.main___container__date__title}>data</p>
-                    <div>
-                        <p className={styles.main___container__date__text}>15.12.22</p>
-                    </div>
+                    <ul>
+                    {addresses.map((addr) => {
+                            return  <li key={addr['timestamp']} className={styles.main___container__date__text}>{moment.unix(addresses[0]['timestamp']).format("DD.MM.YY")}</li>
+                        })}
+                    </ul>
                 </div>
                 <div>
                 {/* <Notification /> */}
@@ -22,4 +29,5 @@ const MainPetition = () => {
             </div>
     </>
 }
+
 export default MainPetition
