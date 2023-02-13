@@ -27,12 +27,12 @@ export default function useMethods(contract, web3, provider, callback) {
         dispatch(setAddresses(addresses))
       }, [contract, account])
     
-      const add = useCallback(async () => {
+      const add = useCallback(async (quantity) => {
         if(!isSigned) {
           middlewareDapp(sign)()
           return
         }
-        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei('1', 'ether')}))
+        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
         callback()
       }, [contract, account, web3, isSigned])
     
@@ -52,7 +52,7 @@ export default function useMethods(contract, web3, provider, callback) {
       return {
         recordInWhiteList: middlewareDapp(recordInWhiteList), 
         sign: middlewareDapp(sign), 
-        add: middlewareDapp(add), 
-        getFromSafe: middlewareDapp(getFromSafe)
+        getFromSafe: middlewareDapp(getFromSafe),
+        addEth: (v)=> middlewareDapp(add(v)),
     }
 }
