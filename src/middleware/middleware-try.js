@@ -4,6 +4,6 @@ export async function middlewareTry (request, handlerError = () => {}) {
        return response
     } catch (e) {
         handlerError(e)
-        console.error(e)
+        console.warn(e)
     }
 }

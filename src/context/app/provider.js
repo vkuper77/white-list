@@ -25,19 +25,19 @@ export default function AppProvider({children}) {
   }, [provider])
 
   useEffect(() => {
-    !!contract && !!account && (async () => {
+    !!contract && (async () => {
 
       const [isRecordedAccount, isSignedAccount, addresses] = await Promise.all([
-        middlewareTry(contract.isRecordedWhiteList({from: account})), 
-        middlewareTry(contract.isSigned({from: account})),
+        account && middlewareTry(contract.isRecordedWhiteList({from: account})), 
+        account && middlewareTry(contract.isSigned({from: account})),
         middlewareTry(contract.getSigns())
       ])
 
         dispatch(setIsRecordedAccount(isRecordedAccount))
         dispatch(setIsSigned(isSignedAccount))
-        dispatch(setAddresses(addresses))
+        dispatch(setAddresses(addresses ?? []))
     })() 
-}, [account])
+}, [account, web3])
 
   useEffect(() => {
     !!web3 && middlewareContract(!!contract && (async () => {
@@ -59,7 +59,7 @@ export default function AppProvider({children}) {
       dispatch(setAddresses(addresses)) 
       !!contractBalance && dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
     }))()
-  }, [shouldReload])
+  }, [shouldReload]) 
 
   return <AppContext.Provider value={mehods}>
             {children}
