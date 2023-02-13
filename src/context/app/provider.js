@@ -26,16 +26,14 @@ export default function AppProvider({children}) {
 
   useEffect(() => {
     !!contract && (async () => {
-
       const [isRecordedAccount, isSignedAccount, addresses] = await Promise.all([
         account && middlewareTry(contract.isRecordedWhiteList({from: account})), 
         account && middlewareTry(contract.isSigned({from: account})),
-        middlewareTry(contract.getSigns())
+        middlewareTry(contract.getSigns(), () => [])
       ])
-
         dispatch(setIsRecordedAccount(isRecordedAccount))
         dispatch(setIsSigned(isSignedAccount))
-        dispatch(setAddresses(addresses ?? []))
+        dispatch(setAddresses(addresses))
     })() 
 }, [account, web3])
 

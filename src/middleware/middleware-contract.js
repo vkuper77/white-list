@@ -1,8 +1,7 @@
 export function middlewareContract(callback) {
     return () => {
       if(typeof callback !== 'function') {
-        alert('Connect to Ganache')
-        return
+        return alert('Connect to Ganache: [Test Environment]')
       }
       return callback()
     }

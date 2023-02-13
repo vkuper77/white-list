@@ -3,7 +3,7 @@ export async function middlewareTry (request, handlerError = () => {}) {
        const response = await request
        return response
     } catch (e) {
-        handlerError(e)
         console.warn(e)
+        return handlerError(e)
     }
 }
