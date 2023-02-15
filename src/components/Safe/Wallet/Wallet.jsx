@@ -22,7 +22,7 @@ const Wallet = () => {
     }, [addEth])
     
     const handlerTransaction = () => {
-        !Boolean(timeLeft['amount']) ? setIsVisible(true) : getSafe
+        !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : getSafe
     }
 
     return <>
