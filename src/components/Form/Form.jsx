@@ -9,8 +9,8 @@ const Form = ({isFormSafe = false, callback = () => {}}) => {
     const onSubmit = (e) => {
         e.preventDefault()
         if(
-            (isFormSafe && Number(ethValue) < 1) || 
-            (!isFormSafe && (Number(ethValue) < 1  || Number(USDTValue) < 1)) 
+            (isFormSafe && Number(ethValue) <= 0) || 
+            (!isFormSafe && (Number(ethValue) <= 0  || Number(USDTValue) <= 0)) 
             ) {
             return
         }

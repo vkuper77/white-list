@@ -5,7 +5,7 @@ import CashExpensiveContent from "./CashExpensiveContent"
 const CashMachine = () => {
     const {getFromSafe} = useContext(AppContext)
     const collback = useCallback(getFromSafe, [getFromSafe])
-    return (<CashExpensiveContent collback={collback} />)
+    return (<CashExpensiveContent collback={() => {}} />)
 }
 
 export default CashMachine

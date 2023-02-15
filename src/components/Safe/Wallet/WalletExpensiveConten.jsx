@@ -12,7 +12,7 @@ const WalletExpensiveConten = ({callback}) => {
                 onClick={callback} 
                 className={`${styles.button} ${isLockedButton ? styles.button__disabled : ''}`}
             >
-                {Boolean(timeLeft['amount']) ? 'take' : 'add'}
+                {Boolean(Number(timeLeft['amount'])) ? 'take' : 'add'}
             </a>
         </div>
     )
