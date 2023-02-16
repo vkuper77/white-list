@@ -1,11 +1,9 @@
-import { useContract } from "@/src/hooks/use-contract"
-import { useCallback } from "react"
+import useContractMethods from "@/src/hooks/use-contract-methods"
 import CashExpensiveContent from "./CashExpensiveContent"
 
 const CashMachine = () => {
-    const {getFromSafe} = useContract()
-    const callback = useCallback(getFromSafe, [getFromSafe])
-    return (<CashExpensiveContent callback={callback} />)
+    const {getFromSafe} = useContractMethods()
+    return (<CashExpensiveContent callback={getFromSafe} />)
 }
 
 export default CashMachine
