@@ -1,13 +1,33 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsRecordedAccount, setIsSigned, setAddresses } from '@/src/store/slice/appSlice';
+import { useContract } from "./use-contract";
 import { middlewareTry } from "../middleware/middleware-try";
 import { middlewareContract } from "../middleware/middleware-contract";
 import { middlewareProvider } from "../middleware/middleware-provider";
+import { setBalance, setIsRecordedAccount, setIsSigned, setAddresses, setTimeLeft } from '@/src/store/slice/appSlice';
 
-export default function useMethods(contract, web3, provider, callback) {
+export default function useContractMethods() {
+    const [shouldReload, reload] = useState(false)
+    const { contract, web3, provider } = useContract()
     const { account, isSigned } = useSelector((state)=> state)
     const dispatch = useDispatch()
+
+    function reloadEffect () {
+      reload(p => !p)
+    }
+
+    useEffect(() => {
+      !!web3 && middlewareContract(!!contract &&(async () => {
+        const [contractBalance, addresses, time] = await Promise.all([
+          middlewareTry(web3.eth.getBalance(contract.address)),
+          middlewareTry(contract.getSigns(), () => []),
+          middlewareTry(contract.checkSafe({from: account}), () => []),
+        ])
+        dispatch(setAddresses(addresses))
+        dispatch(setTimeLeft(time)) 
+        !!contractBalance && dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
+      }))()
+    }, [shouldReload]) 
 
     const recordInWhiteList = useCallback(async () => {
         if(!account) {
@@ -39,10 +59,8 @@ export default function useMethods(contract, web3, provider, callback) {
           middlewareDapp(sign)()
           return alert('Wallet is not detected!')
         }
-        console.log('start')
-        const res = await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
-        console.log('res',res)
-        callback()
+        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
+        reloadEffect()
       }, [contract, account, web3, isSigned])
     
       const getFromSafe = useCallback(async () => {
@@ -53,7 +71,7 @@ export default function useMethods(contract, web3, provider, callback) {
         await middlewareTry(contract.getFromSafe({from: account}), () => {
           alert('Wallet is not detected!')
         })
-        callback()
+        reloadEffect()
       }, [contract, account, isSigned])
     
       const middlewareDapp = useCallback((callback) => {

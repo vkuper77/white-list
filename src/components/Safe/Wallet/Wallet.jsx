@@ -1,4 +1,4 @@
-import { useContract } from "@/src/hooks/use-contract"
+import useContractMethods from "@/src/hooks/use-contract-methods"
 import { useCallback, useState } from "react"
 import { useSelector } from 'react-redux'
 import Form from "../../Form/Form"
@@ -8,9 +8,7 @@ import WalletExpensiveConten from "./WalletExpensiveConten"
 const Wallet = () => {
     const [isVisible, setIsVisible] = useState(false)
     const { balance, timeLeft, isLockedButton } = useSelector((state) => state)
-    const { addEth, getFromSafe } = useContract()
-
-    const getSafe = useCallback(getFromSafe, [getFromSafe])
+    const { addEth, getFromSafe } = useContractMethods()
 
     const handlerClick = useCallback((e) => {
         e.target.dataset.action === 'close' && setIsVisible(false)
@@ -22,7 +20,7 @@ const Wallet = () => {
     }, [addEth])
     
     const handlerTransaction = () => {
-        !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : getSafe
+        !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : getFromSafe
     }
 
     return <>
