@@ -8,7 +8,7 @@ const AboutExpensiveConten = ({collback, isRecordedWhiteList}) => (
             <p className={styles.text}>Give yourself a chance to win the sacred NFT.</p>
             <p className={styles.text}>Push the button on the right.</p>
         </div>
-        <a onClick={collback} className={styles.button}>{isRecordedWhiteList ? 'you are added to WL' : 'participate'}</a>
+        <a onClick={collback} className={styles.button}>{isRecordedWhiteList ? `you are in WL` : 'participate'}</a>
         <div className={styles.ellipse}/>
     </div>
     )
