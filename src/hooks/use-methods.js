@@ -39,7 +39,9 @@ export default function useMethods(contract, web3, provider, callback) {
           middlewareDapp(sign)()
           return alert('Wallet is not detected!')
         }
-        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
+        console.log('start')
+        const res = await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
+        console.log('res',res)
         callback()
       }, [contract, account, web3, isSigned])
     

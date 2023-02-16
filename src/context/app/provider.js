@@ -30,7 +30,7 @@ export default function AppProvider({children}) {
         account && middlewareTry(contract.isRecordedWhiteList({from: account})), 
         account && middlewareTry(contract.isSigned({from: account})),
         middlewareTry(contract.getSigns(), () => []),
-        middlewareTry(contract.checkSafe(), () => []),
+        middlewareTry(contract.checkSafe({from: account}), () => []),
       ])
         dispatch(setIsRecordedAccount(isRecordedAccount))
         dispatch(setIsSigned(isSignedAccount))
@@ -55,7 +55,7 @@ export default function AppProvider({children}) {
       const [contractBalance, addresses, time] = await Promise.all([
         middlewareTry(web3.eth.getBalance(contract.address)),
         middlewareTry(contract.getSigns(), () => []),
-        middlewareTry(contract.checkSafe(), () => []),
+        middlewareTry(contract.checkSafe({from: account}), () => []),
       ])
       dispatch(setAddresses(addresses))
       dispatch(setTimeLeft(time)) 
