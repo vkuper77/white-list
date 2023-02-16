@@ -1,5 +1,5 @@
-import { AppContext } from "@/src/context/app/context"
-import { useContext, useCallback, useState } from "react"
+import { useContract } from "@/src/hooks/use-contract"
+import { useCallback, useState } from "react"
 import { useSelector } from 'react-redux'
 import Form from "../../Form/Form"
 import Modal from "../../UI/Modal"
@@ -8,7 +8,7 @@ import WalletExpensiveConten from "./WalletExpensiveConten"
 const Wallet = () => {
     const [isVisible, setIsVisible] = useState(false)
     const { balance, timeLeft, isLockedButton } = useSelector((state) => state)
-    const { addEth, getFromSafe } = useContext(AppContext)
+    const { addEth, getFromSafe } = useContract()
 
     const getSafe = useCallback(getFromSafe, [getFromSafe])
 

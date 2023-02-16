@@ -63,7 +63,5 @@ export default function AppProvider({children}) {
     }))()
   }, [shouldReload]) 
 
-  return <AppContext.Provider value={mehods}>
-            {children}
-        </AppContext.Provider>
+  return <AppContext.Provider value={mehods}>{children}</AppContext.Provider>
 }
