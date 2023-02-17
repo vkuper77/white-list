@@ -14,7 +14,7 @@ export default function useInit(web3, provider, contract, coldBoot) {
     }, [provider])
 
     useEffect(() => {
-        !!contract && (async () => {
+        !!contract && !!web3 && (async () => {
         const [isRecordedAccount, isSignedAccount, addresses, time] = await Promise.all([
             account && middlewareTry(contract.isRecordedWhiteList({from: account})), 
             account && middlewareTry(contract.isSigned({from: account})),

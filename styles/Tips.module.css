@@ -1,0 +1,33 @@
+.cantainer {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #E94560;
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+}
+
+.text_tips {
+    display: inline-block;
+    font-size: 2rem;
+    display: flex;
+    color: #0F3460;
+}
+
+.text_url {
+    padding-left: 10px;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.text_url:hover{
+    cursor: pointer;
+}
+
+.text_url:active{
+    color: #533483;
+}
