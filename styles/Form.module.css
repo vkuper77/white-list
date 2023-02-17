@@ -20,7 +20,7 @@
 }
 
 .input__group__label{
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     color: white;
     text-transform: uppercase;
@@ -31,7 +31,7 @@
 .input__group__input{
     width: 784px;
     height: 107px;
-    font-size: 42px;
+    font-size: 2.6rem;
     line-height: 60px;
     padding-left: 35px;
     padding-right: 35px;
@@ -44,7 +44,7 @@
     display: block;
     align-self: flex-end;
     color: white;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     margin-top: -14px;
     margin-bottom: 28px;
@@ -52,7 +52,7 @@
 
 .button__submit{
     background-color: #029847;
-    font-size: 60px;
+    font-size: 3.75rem;
     line-height: 86px;
     color: #fff;
     padding-left: 25px;
@@ -87,4 +87,129 @@
 
 .canchel_btn{
     background-color: tomato;
+}
+
+@media (max-width: 1600px) {
+    .input__group__label{
+        font-size: 1.6rem;
+        line-height: 38px;
+        margin-bottom: 10px;
+    }
+
+    .form__container{
+        padding: 34px 60px 25px 60px;
+    }
+
+    .input__group__input{
+        width: 653px;
+        height: 89px;
+        font-size: 2.1rem;
+        line-height: 50px;
+        padding-left: 29px;
+        padding-right: 29px;
+        margin-bottom: 26px;
+    }
+    
+    .info__label{
+        font-size: 1.6rem;
+        line-height: 38px;
+        margin-top: -11px;
+        margin-bottom: 23px;
+    }
+    
+    .button__submit{
+        font-size: 3.1rem;
+        line-height: 71px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 5px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .input__group__label{
+        font-size: 1.2rem;
+        line-height: 28px;
+        margin-bottom: 7px;
+    }
+
+    .form__container{
+        padding: 25px 45px 25px 45px;
+    }
+
+    .input__group__input{
+        width: 489px;
+        height: 66px;
+        font-size: 1.5rem;
+        line-height: 37px;
+        padding-left: 21px;
+        padding-right: 21px;
+        margin-bottom: 19px;
+    }
+    
+    .info__label{
+        font-size: 1.2rem;
+        line-height: 28px;
+        margin-top: -8px;
+        margin-bottom: 17px;
+    }
+    
+    .button__submit{
+        font-size: 2.3rem;
+        line-height: 53px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 3px;
+    }
+
+    .cross{
+        width: 22px;
+        height: 22px;
+        right: 21px;
+        top: 21px;
+    }
+}
+
+@media (max-width: 900px) {
+    .input__group__label{
+        font-size: 0.9rem;
+        line-height: 21px;
+        margin-bottom: 5px;
+    }
+
+    .form__container{
+        padding: 18px 33px 18px 33px;
+    }
+
+    .input__group__input{
+        width: 366px;
+        height: 49px;
+        font-size: 1.1rem;
+        line-height: 27px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .info__label{
+        font-size: 0.9rem;
+        line-height: 21px;
+        margin-top: -6px;
+        margin-bottom: 12px;
+    }
+    
+    .button__submit{
+        font-size: 1.7rem;
+        line-height: 39px;
+        padding-left: 11px;
+        padding-right: 11px;
+        padding-bottom: 2px;
+    }
+
+    .cross{
+        width: 16px;
+        height: 16px;
+        right: 21px;
+        top: 21px;
+    }
 }
