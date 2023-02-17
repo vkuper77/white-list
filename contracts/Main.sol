@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 contract Main {
     struct Safe {
-        uint timestamp;
         uint amount;
+        uint timestamp;
     }
 
     struct Sign {

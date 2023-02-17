@@ -1,11 +1,9 @@
-import { AppContext } from "@/src/context/app/context"
-import { useContext, useCallback } from "react"
+import useContractMethods from "@/src/hooks/use-contract-methods"
 import CashExpensiveContent from "./CashExpensiveContent"
 
 const CashMachine = () => {
-    const {getFromSafe} = useContext(AppContext)
-    const collback = useCallback(getFromSafe, [getFromSafe])
-    return (<CashExpensiveContent collback={collback} />)
+    const {getFromSafe} = useContractMethods()
+    return (<CashExpensiveContent callback={getFromSafe} />)
 }
 
 export default CashMachine

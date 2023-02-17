@@ -1,20 +1,20 @@
 .container{
     position: absolute;
     top: 1375px;
-    left: 250px;
-    right: 243px;
+    left: 13.02%;
+    right: 12.66%;
 }
 
 .title{
-    font-size: 240px;
+    font-size: 15rem;
     line-height: 343px;
     color: white;
 }
 
 .title__black{
     color: #090909;
-    margin-top: -25px;
-    margin-bottom: 138px;
+    margin-top: -1.3%;
+    margin-bottom: 7.19%;
 }
 
 .exchange{
@@ -28,8 +28,8 @@
     display: inline-block;
     background-color: #029847;
     color: #fff;
-    font-size: 98px;
-    padding: 0 25px 28px 25px;
+    font-size: 6.1rem;
+    padding: 0 1.3% 1.46% 1.3%;
 }
 
 .exchange__button:hover {
@@ -44,8 +44,86 @@
 
 .exchange__info__text{
     display: block;
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 69px;
     text-align: right;
     color: #090909;
+}
+
+
+@media (max-width: 1600px) {
+    .container{
+        top: 1120px;
+    }
+    .title{
+        font-size: 12.5rem;
+        line-height: 285px;
+    }
+
+    .exchange__button{
+        font-size: 5rem;
+    }
+
+    .exchange__info__text{
+        font-size: 2.5rem;
+        line-height: 57px;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .container{
+        top: 950px;
+    }
+
+    .title{
+        font-size: 10rem;
+        line-height: 250px;
+    }
+
+    .exchange__button{
+        font-size: 4rem;
+    }
+
+    .exchange__info__text{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .container{
+        top: 650px;
+    }
+
+    .title{
+        font-size: 9rem;
+        line-height: 214px;
+    }
+
+    .exchange__button{
+        font-size: 3.5rem;
+    }
+
+    .exchange__info__text{
+        font-size: 1.5rem;
+        line-height: 50px;
+    }
+}
+
+@media (max-width: 960px) {
+    .title{
+        font-size: 7rem;
+        line-height: 160px;
+    }
+
+    .exchange__button{
+        font-size: 2.5rem;
+    }
+
+    .exchange__info__text{
+        font-size: 1.4rem;
+        line-height: 32px;
+    }
 }

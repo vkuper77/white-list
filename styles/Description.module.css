@@ -2,30 +2,98 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 52px;
+    padding-bottom: 2.71%;
 }
 
 .title{
-    font-size: 240px;
+    font-size: 15rem;
     line-height: 343px;
     color: #090909;
 }
 
 .sub__title {
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 69px;
     color: #090909;
-    margin-bottom: 75px;
-    margin-top: 85px;
+    margin-bottom: 3.91%;
+    margin-top: 4.43%;
 }
 
 .text{
-    font-size: 35px;
+    font-size: 2.1rem;
     line-height: 50px;
     color: #090909;
 }
 
 .main{
-    margin: 0 222px 0 144px;
-    padding-top: 48px;
+    margin: 0 11.56% 0 7.5%;
+    padding-top: 2.5%;
+}
+
+@media (max-width: 1600px) {
+    .title{
+        font-size: 12.5rem;
+        line-height: 285px;
+    }
+
+    .sub__title {
+        font-size: 2.5rem;
+        line-height: 57px;
+    }
+
+    .text{
+        font-size: 1.7rem;
+        line-height: 41px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .title{
+        font-size: 10rem;
+        line-height: 250px;
+    }
+
+    .sub__title {
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    .text{
+        font-size: 1.5rem;
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .title{
+        font-size: 7rem;
+        line-height: 160px;
+    }
+
+    .sub__title {
+        font-size: 1.5rem;
+        line-height: 50px;
+    }
+
+    .text{
+        font-size: 1.3rem;
+        line-height: 31px;
+    }
+}
+
+@media (max-width: 900px) {
+    .title{
+        font-size: 6rem;
+        line-height: 150px;
+    }
+
+    .sub__title {
+        font-size: 1.4rem;
+        line-height: 32px;
+    }
+
+    .text{
+        font-size: 0.9rem;
+        line-height: 23px;
+    }
 }

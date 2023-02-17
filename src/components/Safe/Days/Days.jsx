@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import moment from "moment"
 import { setLockedButton } from "@/src/store/slice/appSlice"
 
-const WEEK = 604800
+const WEEK = 7*24*60*60
 const PLACEHOLDER_TIME = '00:00:00:00'
 const checkTimeout = (timeStamp) => (Number(timeStamp) + WEEK) < moment().unix()
 

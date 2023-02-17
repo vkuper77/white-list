@@ -1,12 +1,12 @@
 import {memo} from 'react'
 import styles from "@/styles/CashMachine.module.css"
 
-const CashExpensiveContent = ({collback}) => (
+const CashExpensiveContent = ({callback}) => (
     <div id="cash_machine" className={styles.container}>
         <h1 className={styles.title}>Cash</h1>
         <h1 className={`${styles.title} ${styles.title__black}`}>Machine</h1>
         <div className={styles.exchange}>
-            <a onClick={collback} className={styles.exchange__button}>exchange</a>
+            <a onClick={callback} className={styles.exchange__button}>exchange</a>
             <div className={styles.exchangee__info}>
                 <span className={styles.exchange__info__text}>fixed rate:</span>
                 <span className={styles.exchange__info__text}>1 ETH = 0.7 USDT</span>

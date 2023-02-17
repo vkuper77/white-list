@@ -1,11 +1,11 @@
-import { AppContext } from "@/src/context/app/context"
-import { useCallback, useContext } from "react"
+import { useCallback } from "react"
 import { useSelector } from 'react-redux'
+import useContractMethods from "@/src/hooks/use-contract-methods"
 import AboutExpensiveConten from "./AboutExpensiveContent"
 
 const About = () => {
     const { isRecordedWhiteList } = useSelector((state)=> state)
-    const { recordInWhiteList } = useContext(AppContext)
+    const { recordInWhiteList } = useContractMethods()
     const collback = useCallback(() => { !isRecordedWhiteList && recordInWhiteList() }, [recordInWhiteList, isRecordedWhiteList])
     return <AboutExpensiveConten collback={collback} isRecordedWhiteList={isRecordedWhiteList}/>
 } 
