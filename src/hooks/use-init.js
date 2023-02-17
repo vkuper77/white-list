@@ -21,6 +21,7 @@ export default function useInit(web3, provider, contract, coldBoot) {
             middlewareTry(contract.getSigns(), () => []),
             middlewareTry(contract.checkSafe({from: account}), () => []),
         ])
+            dispatch(setBalance(web3.utils.fromWei(time['amount'], 'ether')))
             dispatch(setIsRecordedAccount(isRecordedAccount))
             dispatch(setIsSigned(isSignedAccount))
             dispatch(setAddresses(addresses))
@@ -30,12 +31,12 @@ export default function useInit(web3, provider, contract, coldBoot) {
 
     useEffect(() => {
         !!web3 && middlewareContract(!!contract && (async () => {
-            const [[ acc ], contractBalance] = await Promise.all([
+            const [[ acc ]] = await Promise.all([
             middlewareTry(web3.eth.getAccounts()),
-            middlewareTry(web3.eth.getBalance(contract.address))
+            // middlewareTry(web3.eth.getBalance(contract.address))
             ])
             dispatch(setAccount(acc))
-            dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
+            // dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
         }))()
     }, [web3])
 }

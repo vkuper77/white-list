@@ -21,14 +21,15 @@ export default function useContractMethods() {
 
     useEffect(() => {
       !!web3 && middlewareContract(!!contract &&(async () => {
-        const [contractBalance, addresses, time] = await Promise.all([
-          middlewareTry(web3.eth.getBalance(contract.address)),
+        const [addresses, time] = await Promise.all([
+          // middlewareTry(web3.eth.getBalance(contract.address)),
           middlewareTry(contract.getSigns(), () => []),
           middlewareTry(contract.checkSafe({from: account}), () => []),
         ])
+        dispatch(setBalance(web3.utils.fromWei(time['amount'], 'ether')))
         dispatch(setAddresses(addresses))
         dispatch(setTimeLeft(time)) 
-        !!contractBalance && dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
+        // !!contractBalance && dispatch(setBalance(web3.utils.fromWei(contractBalance, 'ether')))
       }))()
     }, [shouldReload]) 
 
