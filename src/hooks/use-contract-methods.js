@@ -12,6 +12,8 @@ export default function useContractMethods() {
     const { account, isSigned } = useSelector((state)=> state)
     const dispatch = useDispatch()
 
+    const [pending, setPending] = useState(false)
+
     function reloadEffect () {
       reload(p => !p)
     }
@@ -30,48 +32,79 @@ export default function useContractMethods() {
     }, [shouldReload]) 
 
     const recordInWhiteList = useCallback(async () => {
+        if(pending) {
+          return
+        }
+        setPending(true)
+
         if(!account) {
           try {
             await provider.request({method: 'eth_requestAccounts'})
           } catch {
+            setPending(false)
             return alert('Wallet is not detected!')
           }
         }
-        await middlewareTry(contract.recordInWhiteList({from: account}))
+        
+        await middlewareTry(contract.recordInWhiteList({from: account}), null, 'signed the petition')
         const isRecordedAccount = await middlewareTry(contract.isRecordedWhiteList({from: account}))
         dispatch(setIsRecordedAccount(isRecordedAccount))
+
+        setPending(false)
       }, [contract, account, provider])
     
       const sign = useCallback(async () => {
-        await middlewareTry(contract.doSign({from: account}))
+        if(pending){
+          return
+        }
+        setPending(true)
+
+        await middlewareTry(contract.doSign({from: account}), null, 'added an address')
         const [isSignedAccount, isRecordedAccount, addresses] = await Promise.all([
           middlewareTry(contract.isSigned({from: account})),
           middlewareTry(contract.isRecordedWhiteList({from: account})),
           middlewareTry(contract.getSigns())
-        ])
+        ]).finally(() => {
+          setPending(false)
+        })
+        
         dispatch(setIsSigned(isSignedAccount))
         dispatch(setIsRecordedAccount(isRecordedAccount))
         dispatch(setAddresses(addresses))
+
       }, [contract, account])
     
       const add = useCallback(async (quantity) => {
+        if(pending){
+          return
+        }
+        setPending(true)
+
         if(!isSigned) {
-          middlewareDapp(sign)()
+          await middlewareDapp(sign)()
+          setPending(false)
           return alert('Wallet is not detected!')
         }
-        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}))
+
+        await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}), null, 'made a deposit')
         reloadEffect()
+        setPending(false)
       }, [contract, account, web3, isSigned])
     
       const getFromSafe = useCallback(async () => {
+        if(pending){
+          return
+        }
+
+        setPending(true)
         if(!isSigned) {
           middlewareDapp(sign)()
           return alert('Wallet is not detected!')
         }
-        await middlewareTry(contract.getFromSafe({from: account}), () => {
-          alert('Wallet is not detected!')
-        })
+
+        await middlewareTry(contract.getFromSafe({from: account}), null, 'received a deposit')
         reloadEffect()
+        setPending(false)
       }, [contract, account, isSigned])
     
       const middlewareDapp = useCallback((callback) => {
@@ -83,5 +116,6 @@ export default function useContractMethods() {
         sign: middlewareDapp(sign), 
         getFromSafe: middlewareDapp(getFromSafe),
         addEth: (v)=> middlewareDapp(add(v)),
+        pending
     }
 }

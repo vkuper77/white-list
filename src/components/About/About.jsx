@@ -5,9 +5,9 @@ import AboutExpensiveConten from "./AboutExpensiveContent"
 
 const About = () => {
     const { isRecordedWhiteList } = useSelector((state)=> state)
-    const { recordInWhiteList } = useContractMethods()
+    const { recordInWhiteList, pending } = useContractMethods()
     const collback = useCallback(() => { !isRecordedWhiteList && recordInWhiteList() }, [recordInWhiteList, isRecordedWhiteList])
-    return <AboutExpensiveConten collback={collback} isRecordedWhiteList={isRecordedWhiteList}/>
+    return <AboutExpensiveConten pending={pending} collback={collback} isRecordedWhiteList={isRecordedWhiteList}/>
 } 
 
 export default About
