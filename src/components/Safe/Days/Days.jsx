@@ -28,10 +28,15 @@ const Days = () => {
     }, [time])
 
     useEffect(() => {
+        if(!timeLeft.length) {
+           return
+        }
+
         if(checkTimeout(timeLeft['timestamp'])) {
             clearTime()
             return
         }
+        
         dispatch(setLockedButton(true))
         timerId.current = setInterval(() => {
             const timee = moment.unix(Number(timeLeft['timestamp']) + WEEK);

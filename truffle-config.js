@@ -6,7 +6,7 @@ module.exports = {
   networks: {
     inf_WhiteList_goerli: {
       network_id: 5,
-      gasPrice: 10000000000,
+      gasPrice: 80000000000,
       provider: new HDWalletProvider(keys.MNEMONIC, `https://goerli.infura.io/v3/${keys.INFURA_PROJECT_ID}`)
     },
     development: {

@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 contract Main {
     struct Safe {
-        uint amount;
         uint timestamp;
+        uint amount;
     }
 
     struct Sign {
@@ -69,7 +69,7 @@ contract Main {
         Safe memory safe = safesStorage[msg.sender];
         require(safe.timestamp != 0, 'You haven\'t put any money in safe');
         // require(block.timestamp >= safe.timestamp + 7*24*60*60, 'Passed time is less than a week');
-        require(block.timestamp >= safe.timestamp + 60*60, 'Passed time is less than 1 hours');
+        require(block.timestamp >= safe.timestamp + 60*60, 'Passed time is less than 5 seconds');
 
         address payable safeOwner = payable(msg.sender);
         safeOwner.transfer(safe.amount);
