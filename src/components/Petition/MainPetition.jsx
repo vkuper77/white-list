@@ -1,7 +1,7 @@
 import styles from "@/styles/Petition.module.css"
 import { useSelector } from 'react-redux'
 import moment from "moment/moment"
-import Notification from "./Notification"
+import Notification from "../UI/Notification"
 
 const MainPetition = () => {
     const { addresses } = useSelector((state)=> state)

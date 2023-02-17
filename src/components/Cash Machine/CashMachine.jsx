@@ -2,8 +2,8 @@ import useContractMethods from "@/src/hooks/use-contract-methods"
 import CashExpensiveContent from "./CashExpensiveContent"
 
 const CashMachine = () => {
-    const {getFromSafe} = useContractMethods()
-    return (<CashExpensiveContent callback={getFromSafe} />)
+    const {getFromSafe, pending} = useContractMethods()
+    return (<CashExpensiveContent pending={pending} callback={() => {}} />)
 }
 
 export default CashMachine

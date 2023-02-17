@@ -2,7 +2,7 @@ import {memo} from 'react'
 import styles from "@/styles/Safe.module.css"
 import { useSelector } from 'react-redux'
 
-const WalletExpensiveConten = ({callback}) => {
+const WalletExpensiveConten = ({callback, pending}) => {
     const { balance, timeLeft, isLockedButton } = useSelector((state) => state)
     return (
         <div className={styles.card__left}>
@@ -12,7 +12,7 @@ const WalletExpensiveConten = ({callback}) => {
                 onClick={callback} 
                 className={`${styles.button} ${isLockedButton ? styles.button__disabled : ''}`}
             >
-                {Boolean(Number(timeLeft['amount'])) ? 'take' : 'add'}
+                {pending ? 'pending...' : Boolean(Number(timeLeft['amount'])) ? 'take' : 'add'}
             </a>
         </div>
     )
