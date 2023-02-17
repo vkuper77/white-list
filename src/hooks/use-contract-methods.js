@@ -4,7 +4,7 @@ import { useContract } from "./use-contract";
 import { middlewareTry } from "../middleware/middleware-try";
 import { middlewareContract } from "../middleware/middleware-contract";
 import { middlewareProvider } from "../middleware/middleware-provider";
-import { setBalance, setIsRecordedAccount, setIsSigned, setAddresses, setTimeLeft } from '@/src/store/slice/appSlice';
+import { setBalance, setIsRecordedAccount, setIsSigned, setAddresses, setTimeLeft, setNotificationInfo } from '@/src/store/slice/appSlice';
 
 export default function useContractMethods() {
     const [shouldReload, reload] = useState(false)
@@ -37,16 +37,18 @@ export default function useContractMethods() {
         if(pending) {
           return
         }
-        setPending(true)
 
         if(!account) {
           try {
             await provider.request({method: 'eth_requestAccounts'})
           } catch {
             setPending(false)
-            return alert('Wallet is not detected!')
+            dispatch(setNotificationInfo({id: Date.now(), autoHide: true, position: 'top', text: 'Wallet is not detected! LogIn please.', url: null})) 
+            return
           }
         }
+
+        setPending(true)
         
         await middlewareTry(contract.recordInWhiteList({from: account}), null, 'signed the petition')
         const isRecordedAccount = await middlewareTry(contract.isRecordedWhiteList({from: account}))
@@ -59,6 +61,17 @@ export default function useContractMethods() {
         if(pending){
           return
         }
+
+        if(!account) {
+          try {
+            await provider.request({method: 'eth_requestAccounts'})
+          } catch {
+            setPending(false)
+            dispatch(setNotificationInfo({id: Date.now(), autoHide: true, position: 'top', text: 'Wallet is not detected! LogIn please in Metamask', url: null})) 
+            return
+          }
+        }
+
         setPending(true)
 
         await middlewareTry(contract.doSign({from: account}), null, 'added an address')
@@ -80,13 +93,15 @@ export default function useContractMethods() {
         if(pending){
           return
         }
-        setPending(true)
 
         if(!isSigned) {
+          dispatch(setNotificationInfo({id: Date.now(), autoHide: true, position: 'top', text: 'Wallet is not detected! LogIn please in Metamask', url: null}))
           middlewareDapp(sign)()
           setPending(false)
-          return alert('Wallet is not detected!')
+          return 
         }
+
+        setPending(true)
 
         await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}), null, 'made a deposit')
         reloadEffect()
@@ -97,11 +112,14 @@ export default function useContractMethods() {
           return
         }
 
-        setPending(true)
         if(!isSigned) {
+          dispatch(setNotificationInfo({id: Date.now(), autoHide: true, position: 'top', text: 'Wallet is not detected! LogIn please in Metamask', url: null}))
           middlewareDapp(sign)()
-          return alert('Wallet is not detected!')
+          setPending(false)
+          return 
         }
+
+        setPending(true)
 
         await middlewareTry(contract.getFromSafe({from: account}), null, 'received a deposit')
         reloadEffect()

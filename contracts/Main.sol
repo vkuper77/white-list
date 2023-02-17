@@ -69,7 +69,7 @@ contract Main {
         Safe memory safe = safesStorage[msg.sender];
         require(safe.timestamp != 0, 'You haven\'t put any money in safe');
         // require(block.timestamp >= safe.timestamp + 7*24*60*60, 'Passed time is less than a week');
-        require(block.timestamp >= safe.timestamp + 5, 'Passed time is less than 5 seconds');
+        require(block.timestamp >= safe.timestamp + 60*60, 'Passed time is less than 1 hours');
 
         address payable safeOwner = payable(msg.sender);
         safeOwner.transfer(safe.amount);
