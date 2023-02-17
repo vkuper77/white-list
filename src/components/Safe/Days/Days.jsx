@@ -4,33 +4,35 @@ import { useEffect, useRef, useState } from "react"
 import moment from "moment"
 import { setLockedButton } from "@/src/store/slice/appSlice"
 
-const WEEK = 604800
+const WEEK = 60*60 //7*24*60*60
 const PLACEHOLDER_TIME = '00:00:00:00'
-const checkTimeout = (timeStamp) => (Number(timeStamp) + WEEK) < moment().unix()
+const checkTimeout = (timeStamp) => (Number(timeStamp) + WEEK) <= moment().unix()
 
 const Days = () => {
-    const [time, setTime] = useState(PLACEHOLDER_TIME)
+    const [time, setTime] = useState(null)
     const { timeLeft } = useSelector((state) => state)
     const timerId = useRef()
 
     const dispatch = useDispatch()
 
+    function clearTime() {
+        clearInterval(timerId.current)
+        dispatch(setLockedButton(false))
+        setTime(PLACEHOLDER_TIME)
+    }
+ 
     useEffect(() => {
-        if(checkTimeout(timeLeft['timestamp'])) {
-            clearInterval(timerId.current)
-            dispatch(setLockedButton(false))
+        if(checkTimeout(timeLeft['timestamp']) || time === PLACEHOLDER_TIME) { 
+            clearTime()
         }
     }, [time])
 
     useEffect(() => {
-        if(!timeLeft['timestamp'] || Number(timeLeft['timestamp']) === 0) {
-            clearInterval(timerId.current)
-            setTime(PLACEHOLDER_TIME)
+        if(checkTimeout(timeLeft['timestamp'])) {
+            clearTime()
             return
         }
-
         dispatch(setLockedButton(true))
-
         timerId.current = setInterval(() => {
             const timee = moment.unix(Number(timeLeft['timestamp']) + WEEK);
             const nowTime = moment();
@@ -40,11 +42,10 @@ const Days = () => {
                 `${duration.days() < 10 ?'0' + duration.days(): duration.days()}:${duration.hours() < 10 ?'0' + duration.hours(): duration.hours()}:${duration.minutes() < 10 ?'0' + duration.minutes(): duration.minutes()}:${duration.seconds() < 10 ? '0' + duration.seconds() : duration.seconds()}`
             )
           }, 1000)
-
           return () => clearInterval(timerId.current)
     }, [timeLeft])
 
-    return <DaysExpensiveConten time={time} />
+    return <DaysExpensiveConten time={time || PLACEHOLDER_TIME} />
 }
 
 export default Days

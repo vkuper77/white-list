@@ -1,12 +1,12 @@
 .container {
-    margin-top: 482px;
+    margin-top: 25.1%;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
 .title{
-    font-size: 240px;
+    font-size: 15rem;
     line-height: 343px;
     color: #090909;
     text-transform: uppercase;
@@ -14,27 +14,27 @@
 }
 
 .small_title{
-    font-size: 60px;
+    font-size: 3.75rem;
     line-height: 86px;
     color: #535252;
     text-transform: uppercase;
-    margin-bottom: -76px;
+    margin-bottom: -3.96%;
 }
 
 .text{
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     color: #090909;
-    margin-top: 19px;
+    margin-top: 0.99%;
 }
 
 .button{
     background-color: #029847;
     color: #fff;
-    font-size: 98px;
+    font-size: 6.125rem;
     line-height: 140px;
-    padding: 0 19px 0 19px;
-    margin-top: -8px;
+    padding: 0 0.99% 0 0.99%;
+    margin-top: -0.42%;
 }
 
 .button:hover {
@@ -51,9 +51,9 @@
 .main {
     display: flex;
     flex-direction: row;
-    padding: 0 175px 0 190px;
-    margin-top: 75px;
-    height: 1196px;
+    padding: 0 9.11% 0 9.9%;
+    margin-top: 3.91%;
+    min-height: 1196px;
 }
 
 .main___container__transaction {
@@ -64,7 +64,7 @@
 }
 
 .main___container__transaction__title {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     text-align: right;
     border-width: 0 0 3px 0;
@@ -74,7 +74,7 @@
 }
 
 .main___container__transaction__text {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     text-align: right;
     padding: 10px 23px;
@@ -85,7 +85,7 @@
 }
 
 .main___container__date__title {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     border-width: 0 0 3px 0;
     border-color: #090909;
@@ -95,7 +95,7 @@
 }
 
 .main___container__date__text {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     padding: 10px 23px;
     text-align: left;
@@ -105,11 +105,13 @@
     border-width: 3px 0 0 0;
     border-color: #029847;
     border-style: solid;
-    position: absolute;
+    position: fixed;
     left: 0;
-    bottom: 371px;
-    padding-left: 100px;
-    padding-top: 8px;
+    bottom: 5%;
+    padding-left: 5.21%;
+    padding-top: 0.42%;
+    background-color: rgba(255, 255, 255, 0.9);
+    animation: slide-in 1000ms;
 }
 
 .container__notification__error{
@@ -117,8 +119,7 @@
 }
 
 .text__notification{
-    font-size: 32px;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 46px;
     color: #029847;
     text-align: right;
@@ -126,4 +127,171 @@
 
 .text__notification__error{
     color: #781010;
+}
+
+@keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+}
+
+@media (max-width: 1600px) {
+    .title{
+        font-size: 12.5rem;
+        line-height: 285px;
+    }
+    
+    .small_title{
+        font-size: 3.1rem;
+        line-height: 71px;
+    }
+    
+    .text{
+        font-size: 1.6rem;
+        line-height: 38px;
+    }
+    
+    .button{
+        font-size: 5.1rem;
+        line-height: 140px;
+    }
+
+    .main___container__transaction__title {
+        font-size: 1.6rem;
+        line-height: 38px;
+        padding: 8px 20px;
+    }
+
+    .main___container__transaction__text {
+        font-size: 1.6rem;
+        line-height: 38px;
+        padding: 8px 20px;
+    }
+
+    .main___container__date__title {
+        font-size: 1.6rem;
+        line-height: 38px;
+        padding: 8px 20px;
+    }
+
+    .main___container__date__text {
+        font-size: 1.6rem;
+        line-height: 38px;
+        padding: 8px 20px;
+    }
+
+    .text__notification{
+        font-size: 1.6rem;
+        line-height: 38px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .title{
+        font-size: 10.9rem;
+        line-height: 249px;
+    }
+    
+    .small_title{
+        font-size: 3.1rem;
+        line-height: 71px;
+    }
+    
+    .text{
+        font-size: 1.4rem;
+        line-height: 33px;
+    }
+    
+    .button{
+        font-size: 5.1rem;
+        line-height: 140px;
+    }
+
+    .main___container__transaction__title {
+        font-size: 1.4rem;
+        line-height: 33px;
+        padding: 6px 18px;
+    }
+
+    .main___container__transaction__text {
+        font-size: 1.4rem;
+        line-height: 33px;
+        padding: 6px 18px;
+    }
+
+    .main___container__date__title {
+        font-size: 1.4rem;
+        line-height: 33px;
+        padding: 6px 18px;
+    }
+
+    .main___container__date__text {
+        font-size: 1.4rem;
+        line-height: 33px;
+        padding: 6px 18px;
+    }
+
+    .text__notification{
+        font-size: 1.4rem;
+        line-height: 33px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main {
+        padding: 0 5% 0 5%;
+        margin-top: 5%;
+        min-height: 1196px;
+    }
+    .title{
+        font-size: 7rem;
+        line-height: 160px;
+    }
+    
+    .small_title{
+        font-size: 1.9rem;
+        line-height: 45px;
+    }
+    
+    .text{
+        font-size: 0.9rem;
+        line-height: 21px;
+    }
+    
+    .button{
+        font-size: 3.2rem;
+        line-height: 90px;
+    }
+
+    .main___container__transaction__title {
+        font-size: 0.9rem;
+        line-height: 21px;
+        padding: 6px 18px;
+    }
+
+    .main___container__transaction__text {
+        font-size: 0.9rem;
+        line-height: 21px;
+        padding: 6px 18px;
+    }
+
+    .main___container__date__title {
+        font-size: 0.9rem;
+        line-height: 21px;
+        padding: 6px 18px;
+    }
+
+    .main___container__date__text {
+        font-size: 0.9rem;
+        line-height: 21px;
+        padding: 6px 18px;
+    }
+
+    .text__notification{
+        font-size: 0.9rem;
+        line-height: 21px;
+    }
 }

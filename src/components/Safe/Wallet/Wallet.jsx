@@ -1,5 +1,5 @@
-import { AppContext } from "@/src/context/app/context"
-import { useContext, useCallback, useState } from "react"
+import useContractMethods from "@/src/hooks/use-contract-methods"
+import { useCallback, useState } from "react"
 import { useSelector } from 'react-redux'
 import Form from "../../Form/Form"
 import Modal from "../../UI/Modal"
@@ -8,9 +8,7 @@ import WalletExpensiveConten from "./WalletExpensiveConten"
 const Wallet = () => {
     const [isVisible, setIsVisible] = useState(false)
     const { balance, timeLeft, isLockedButton } = useSelector((state) => state)
-    const { addEth, getFromSafe } = useContext(AppContext)
-
-    const getSafe = useCallback(getFromSafe, [getFromSafe])
+    const { addEth, getFromSafe, pending } = useContractMethods()
 
     const handlerClick = useCallback((e) => {
         e.target.dataset.action === 'close' && setIsVisible(false)
@@ -22,13 +20,14 @@ const Wallet = () => {
     }, [addEth])
     
     const handlerTransaction = () => {
-        !Boolean(timeLeft['amount']) ? setIsVisible(true) : getSafe
+       return !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : !isLockedButton && getFromSafe()
     }
 
     return <>
                 <WalletExpensiveConten 
                     callback={handlerTransaction} 
-                    balance={balance} 
+                    balance={balance}
+                    pending={pending} 
                 />
                 <Modal isVisible={isVisible} callback={handlerClick}> 
                     <Form isFormSafe callback={handlerCallback} /> 

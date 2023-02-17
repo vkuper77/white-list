@@ -19,3 +19,17 @@
 .second{
     transform: rotate(135deg);
 }
+
+@media (max-width: 1200px) {
+    .wand{
+        height: 2.5px;
+        width: 22.5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .wand{
+        height: 1.8px;
+        width: 16.8px;
+    }
+}

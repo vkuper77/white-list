@@ -1,13 +1,13 @@
-import { AppContext } from "@/src/context/app/context"
 import { useSelector } from 'react-redux'
-import { useContext, useCallback } from "react"
+import { useCallback } from "react"
 import ExpensiveConten from "./ExpensiveConten"
+import useContractMethods from '@/src/hooks/use-contract-methods'
 
 const HeaderPetition = () => {
     const { isSigned, addresses } = useSelector((state)=> state)
-    const {sign} = useContext(AppContext)
+    const {sign, pending} = useContractMethods()
     const collback = useCallback(() => {!isSigned && sign()} , [sign, isSigned])
-    return <ExpensiveConten collback={collback} isSigned={isSigned} addresses={addresses}/>
+    return <ExpensiveConten pending={pending} collback={collback} isSigned={isSigned} addresses={addresses}/>
 }
 
 export default HeaderPetition
