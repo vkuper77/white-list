@@ -20,7 +20,7 @@ const Wallet = () => {
     }, [addEth])
     
     const handlerTransaction = () => {
-        !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : getFromSafe
+       return !Boolean(Number(timeLeft['amount'])) ? setIsVisible(true) : !isLockedButton && getFromSafe()
     }
 
     return <>

@@ -16,6 +16,7 @@ export default function useContractMethods() {
 
     function reloadEffect () {
       reload(p => !p)
+      setPending(false)
     }
 
     useEffect(() => {
@@ -81,14 +82,13 @@ export default function useContractMethods() {
         setPending(true)
 
         if(!isSigned) {
-          await middlewareDapp(sign)()
+          middlewareDapp(sign)()
           setPending(false)
           return alert('Wallet is not detected!')
         }
 
         await middlewareTry(contract.putInSafe({from: account, value: web3.utils.toWei(`${quantity}`, 'ether')}), null, 'made a deposit')
         reloadEffect()
-        setPending(false)
       }, [contract, account, web3, isSigned])
     
       const getFromSafe = useCallback(async () => {
@@ -104,7 +104,6 @@ export default function useContractMethods() {
 
         await middlewareTry(contract.getFromSafe({from: account}), null, 'received a deposit')
         reloadEffect()
-        setPending(false)
       }, [contract, account, isSigned])
     
       const middlewareDapp = useCallback((callback) => {
