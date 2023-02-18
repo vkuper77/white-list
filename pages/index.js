@@ -17,9 +17,7 @@ export default function Home() {
         <Petition />
         <div className="main__container">
           <Safe>
-            <CashMachine>
-              
-            </CashMachine>
+            <CashMachine/>
           </Safe>
         </div>
         <Description />
