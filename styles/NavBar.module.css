@@ -35,21 +35,118 @@
     margin-right: 0;
 }
 
+@media (max-width: 1850px) {
+    .link {
+        font-size: 3.6rem 
+    }
+}
+
+@media (max-width: 1780px) {
+    .link {
+        font-size: 3.4rem 
+    }
+}
+
+@media (max-width: 1680px) {
+    .link {
+        font-size: 3.2rem 
+    }
+}
+
 @media (max-width: 1600px) {
     .link {
         font-size: 3rem 
     }
 }
 
+@media (max-width: 1480px) {
+    .link {
+        font-size: 2.8rem 
+    }
+}
+
 @media (max-width: 1400px) {
+    .container {
+        padding-top: 86px;
+    }
     .indentation__specific{
-        margin-left: 1.61%;
-        margin-right: 0;
+        margin-left: 3.7%;
+        margin-right: 3.7%;
     }
     .link {
        font-size: 2.5rem
     }
     .indentation__specific_wrap{
         margin-left: 1.61%;
+    }
+}
+
+@media (max-width: 1240px) {
+    .link {
+        font-size: 2.4rem
+     }
+     .indentation__specific {
+        margin-left: 3.3%;
+        margin-right: 3.3%;
+     }
+}
+
+@media (max-width: 1180px) {
+    .link {
+        font-size: 2rem
+     }
+     .indentation__specific {
+        margin-left: 3.1%;
+        margin-right: 3.1%;
+     }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        padding-top: 61px;
+    }
+
+    .link {
+        font-size: 1.9rem
+     }
+
+     .indentation__specific {
+        margin-left: 3%;
+        margin-right: 3%;
+     }
+}
+
+@media (max-width: 940px) {
+    .link {
+       font-size: 1.8rem
+    }
+}
+
+@media (max-width: 880px) {
+    .link {
+       font-size: 1.6rem
+    }
+}
+
+@media (max-width: 780px) {
+    .link {
+       font-size: 1.4rem
+    }
+}
+
+@media (max-width: 680px) {
+    .link {
+       font-size: 1.2rem
+    }
+}
+
+
+@media (max-width: 580px) {
+    .container {
+        padding-top: 34px;
+    }
+
+    .link {
+       font-size: 1rem;
     }
 }

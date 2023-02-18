@@ -3,6 +3,7 @@
     align-items: center;
     flex-direction: column;
     padding-bottom: 2.71%;
+    margin-top: 137.97%;
 }
 
 .title{
@@ -30,20 +31,68 @@
     padding-top: 2.5%;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1800px) {
     .title{
-        font-size: 12.5rem;
-        line-height: 285px;
+        font-size: 13.5rem;
+        line-height: 308px;
     }
 
-    .sub__title {
-        font-size: 2.5rem;
-        line-height: 57px;
+    .sub__title{
+        font-size: 2.7rem;
+        line-height: 62px;
+    }
+
+    .text{
+        font-size: 1.8rem;
+        line-height: 45px;
+    }
+}
+
+
+@media (max-width: 1700px) {
+    .title{
+        font-size: 13rem;
+        line-height: 277px;
+    }
+
+    .sub__title{
+        font-size: 2.4rem;
+        line-height: 55px;
     }
 
     .text{
         font-size: 1.7rem;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .title{
+        font-size: 10rem;
+        line-height: 249px;
+    }
+
+    .sub__title {
+        font-size: 2.1rem;
+        line-height: 49px;
+    }
+
+    .text{
+        font-size: 1.6rem;
         line-height: 41px;
+    }
+}
+
+@media (max-width: 1500px) {
+
+    .title{
+        font-size: 9rem;
+        line-height: 224px;
+    }
+
+    .sub__title{
+        font-size: 2rem;
+        line-height: 44px;
     }
 }
 
@@ -54,7 +103,7 @@
     }
 
     .sub__title {
-        font-size: 2rem;
+        font-size: 1.9rem;
         line-height: 50px;
     }
 
@@ -82,18 +131,40 @@
 }
 
 @media (max-width: 900px) {
+    .conatiner{
+        margin-top: 120%;
+    }
+
     .title{
-        font-size: 6rem;
-        line-height: 150px;
+        font-size: 5.7rem;
+        line-height: 144px;
     }
 
     .sub__title {
-        font-size: 1.4rem;
-        line-height: 32px;
+        font-size: 1.1rem;
+        line-height: 28px;
     }
 
     .text{
         font-size: 0.9rem;
         line-height: 23px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .title{
+        font-size: 3.1rem;
+        line-height: 80px;
+    }
+
+    .sub__title {
+        font-size: 0.5rem;
+        line-height: 15px;
+    }
+
+    .text{
+        font-size: 0.4rem;
+        line-height: 13px;
     }
 }

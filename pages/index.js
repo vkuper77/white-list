@@ -16,8 +16,11 @@ export default function Home() {
         <About />
         <Petition />
         <div className="main__container">
-          <Safe/>
-          <CashMachine/>
+          <Safe>
+            <CashMachine>
+              
+            </CashMachine>
+          </Safe>
         </div>
         <Description />
         <Form />

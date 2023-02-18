@@ -49,6 +49,22 @@
 }
 
 
+@media (max-width: 1800px) {
+    .title{
+        font-size: 14rem;
+        line-height: 343px;
+    }
+    .text{
+        font-size: 2.8rem;
+        line-height: 64px;
+    }
+    .button{
+        font-size: 4.3rem;
+        line-height: 106px;
+     }
+}
+
+
 @media (max-width: 1600px) {
     .title{
         font-size: 12.5rem;
@@ -68,8 +84,108 @@
      }
 }
 
+@media (max-width: 1700px) {
+    .button{
+        font-size: 4.9rem;
+    }
+    .title{
+        font-size: 12rem;
+        line-height: 277px;
+    }
+    .text{
+        font-size: 2.4rem;
+        line-height: 55px;
+    }
+    .ellipse {
+        top: 450px;
+     }
+}
+
+@media (max-width: 1600px) {
+    .button{
+        font-size: 4.4rem;
+    }
+
+    .title{
+        font-size: 10rem;
+        line-height: 249px;
+    }
+
+    .text{
+        font-size: 2.1rem;
+        line-height: 49px;
+    }
+
+    .ellipse {
+        top: 400px;
+     }
+}
+
+@media (max-width: 1500px) {
+
+    .button{
+        font-size: 3.9rem;
+    }
+
+    .title{
+        font-size: 9rem;
+        line-height: 224px;
+    }
+
+    .text{
+        font-size: 1.8rem;
+        line-height: 44px;
+    }
+
+    .ellipse {
+        top: 300px;
+     }
+
+}
+
+
 @media (max-width: 1400px) {
-    .container{
+   
+    .title{
+        font-size: 10.9rem;
+        line-height: 250px;
+    }
+    .text{
+        font-size: 2.1rem;
+       line-height: 50px; 
+    }
+    .button{
+        font-size: 3.6rem; 
+        line-height: 83px;
+     }
+     .ellipse {
+        top: 300px;
+     }
+}
+
+@media (max-width: 1200px) {
+    .button{
+        font-size: 3.5rem;
+    }
+
+    .title{
+        font-size: 5rem;
+        line-height: 117px;
+    }
+
+    .text{
+        font-size: 1.6rem;
+        line-height: 39px;
+    }
+
+    .ellipse {
+        top: 150px;
+     }
+}
+
+@media (max-width: 1000px) {
+
+     .container{
         flex-wrap: wrap;
         align-items: center;
         flex-direction: column;
@@ -77,24 +193,25 @@
         padding-top: 50px;
         padding-bottom: 3%;
     }
-    .title{
-        font-size: 10.9rem;
-        line-height: 250px;
+
+    .button{
+        font-size: 3.1rem;
+        margin-left: 0;
+        margin-top: 20px;
     }
+    .title{
+        font-size: 7.2rem;
+        line-height: 180px;
+    }
+
     .text{
         text-align: center;
-        font-size: 2.1rem;
-        line-height: 50px;
-        padding-bottom: 10px;
+        font-size: 1.4rem;
+        line-height: 35px;
     }
-    .button{
-        font-size: 3.6rem; 
-        margin-left: 0;
-        line-height: 83px;
-     }
-     .ellipse {
-        height: 400px;
-        top: 300px;
+
+    .ellipse {
+        top: 120px;
      }
 }
 
@@ -112,10 +229,69 @@
     }
     .button{
         font-size: 2.3rem; 
-        line-height: 83px;
+        line-height: 60px;
+        padding: 0 0.12% 0 0.12%;
      }
      .ellipse {
         height: 300px;
         top: 200px;
+     }
+}
+
+@media (max-width: 700px) {
+    .button{
+        font-size: 2rem;
+    }
+
+    .title{
+        font-size: 4.5rem;
+        line-height: 115px;
+    }
+
+    .text{
+        font-size: 0.8rem;
+        line-height: 22px;
+    }
+
+    .ellipse {
+        top: 100px;
+     }
+}
+
+@media (max-width: 600px) {
+    .container{
+        padding-bottom: 1%;
+        padding-top: 2.4%;
+    }
+}
+
+@media (max-width: 585px) {
+
+    .title{
+        font-size: 3.1rem;
+        line-height: 80px;
+    }
+
+    .text{
+        font-size: 0.5rem;
+        line-height: 15px;
+    }
+
+    .button{
+        font-size: 1.4rem;
+        line-height: 30px;
+        padding: 0 0.06% 0 0.06%;
+     }
+
+     .ellipse {
+        height: 166px;
+        top: 111px;
+     }
+}
+
+@media (max-width: 400px) {
+    .ellipse {
+        height: 166px;
+        top: 90px;
      }
 }

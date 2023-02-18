@@ -1,8 +1,11 @@
-import {memo} from 'react'
+import {memo, useEffect, useMemo} from 'react'
 import styles from "@/styles/CashMachine.module.css"
 
-const CashExpensiveContent = ({callback, pending}) => (
-    <div id="cash_machine" className={styles.container}>
+const CashExpensiveContent = ({callback, pending}) => {
+
+
+    return  (
+    <div id="cash_machine" className={styles.container} >
         <h1 className={styles.title}>Cash</h1>
         <h1 className={`${styles.title} ${styles.title__black}`}>Machine</h1>
         <div className={styles.exchange}>
@@ -13,6 +16,6 @@ const CashExpensiveContent = ({callback, pending}) => (
            </div>
         </div>
     </div>
-)
+)}
 
 export default memo(CashExpensiveContent)
