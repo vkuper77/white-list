@@ -18,9 +18,10 @@ const MainPetition = () => {
                     <p className={styles.main___container__date__title}>date</p>
                     <ul>
                     {addresses.map((addr) =>  (
-                                    <li key={addr['timestamp']} className={styles.main___container__date__text}>
-                                        {moment.unix(addr['timestamp']).format("DD.MM.YY")}
-                                    </li>))}
+                        <li key={addr['timestamp']} className={styles.main___container__date__text}>
+                            {moment.unix(addr['timestamp']).format("DD.MM.YY")}
+                        </li>))
+                    }
                     </ul>
                 </div>
                 <div>
