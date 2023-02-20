@@ -4,14 +4,14 @@ import moment from "moment/moment"
 
 const MainPetition = () => {
     const { addresses } = useSelector((state)=> state)
-    return <>
-            <div className={styles.main}>
+    return (<div className={styles.main}>
                 <div className={styles.main___container__transaction}>
                     <p className={styles.main___container__transaction__title}>address</p>
                     <ul>
-                        {addresses.map((addr) => {
-                            return <li key={addr['from']} className={styles.main___container__transaction__text}>{addr['from']}</li>
-                        })}
+                        {addresses.map((addr) => (
+                            <li key={addr['from']} className={styles.main___container__transaction__text}>
+                                {addr['from']}
+                            </li>))}
                     </ul>
                 </div>
                 <div className={styles.main___container__date}>
@@ -24,10 +24,7 @@ const MainPetition = () => {
                     }
                     </ul>
                 </div>
-                <div>
-            </div>
-            </div>
-    </>
+            </div>)
 }
 
 export default MainPetition
