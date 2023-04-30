@@ -11,10 +11,10 @@ import Tips from "@/src/components/UI/Tips";
 export default function Home() {
   return (
     <div className="wrapper">
-      {/* <Tips /> */}
+      <Tips />
       <NavBar />
       <About />
-      {/* <Petition /> */}
+      <Petition />
       {/* <div className="main__container"> */}
       {/* <Safe> */}
       {/* <CashMachine/> */}
