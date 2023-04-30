@@ -15,11 +15,9 @@ export default function Home() {
       <NavBar />
       <About />
       <Petition />
-      {/* <div className="main__container"> */}
       {/* <Safe> */}
       {/* <CashMachine/> */}
       {/* </Safe> */}
-      {/* </div> */}
       {/* <Description /> */}
       {/* <Form /> */}
       {/* <Notification /> */}

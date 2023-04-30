@@ -8,16 +8,19 @@ const MainPetition = () => {
     <div className={styles.main}>
       <div className={styles.main___container__transaction}>
         <p className={styles.main___container__transaction__title}>address</p>
-        <ul>
-          {addresses.map((addr) => (
-            <li
-              key={addr["from"]}
-              className={styles.main___container__transaction__text}
-            >
-              {addr["from"]}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.main___container__list}>
+          <ul className={styles.list}>
+            {addresses.map((addr, idx) => (
+              <li
+                key={addr["from"]}
+                className={styles.main___container__transaction__text}
+              >
+                <span>{idx + 1}.</span>&nbsp;
+                <span>{addr["from"]}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div className={styles.main___container__date}>
         <p className={styles.main___container__date__title}>date</p>
