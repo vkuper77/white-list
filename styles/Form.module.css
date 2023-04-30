@@ -1,4 +1,4 @@
-.container{
+/* .container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -99,9 +99,9 @@
     .form__container{
         padding: 36px 62px 27px 62px;
     } */
-}
+/* } */
 
-@media (max-width: 1600px) {
+/* @media (max-width: 1600px) {
     .input__group__label{
         font-size: 1.6rem;
         line-height: 38px;
@@ -270,4 +270,4 @@
         right: 8px;
         top: 10px;
     }
-}
+} */ 
