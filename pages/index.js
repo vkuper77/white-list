@@ -10,19 +10,19 @@ import Tips from "@/src/components/UI/Tips";
 
 export default function Home() {
   return (
-      <div className='wrapper'>
-        {/* <Tips /> */}
-        <NavBar />
-        {/* <About /> */}
-        {/* <Petition /> */}
-        {/* <div className="main__container"> */}
-          {/* <Safe> */}
-            {/* <CashMachine/> */}
-          {/* </Safe> */}
-        {/* </div> */}
-        {/* <Description /> */}
-        {/* <Form /> */}
-        {/* <Notification /> */}
-      </div>
-  )
+    <div className="wrapper">
+      {/* <Tips /> */}
+      <NavBar />
+      <About />
+      {/* <Petition /> */}
+      {/* <div className="main__container"> */}
+      {/* <Safe> */}
+      {/* <CashMachine/> */}
+      {/* </Safe> */}
+      {/* </div> */}
+      {/* <Description /> */}
+      {/* <Form /> */}
+      {/* <Notification /> */}
+    </div>
+  );
 }
