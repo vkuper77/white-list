@@ -13,7 +13,10 @@ const CashExpensiveContent = ({ callback, pending }) => {
           </a>
           <div className={styles.exchangee__info}>
             <span className={styles.exchange__info__text}>fixed rate:</span>
-            <span className={styles.exchange__info__text} style={{marginTop: '1.1rem'}}>
+            <span
+              className={styles.exchange__info__text}
+              style={{ marginTop: "1.1rem" }}
+            >
               1 ETH = 0.7 USDT
             </span>
           </div>
