@@ -1,273 +1,82 @@
-/* .container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.container {
+  background-color: var(--color-dark);
+  width: 58.75rem;
+  max-height: 37.62rem;
+  align-self: center;
+  border-radius: 3.06rem;
+  padding: 3rem 4.5rem 2rem 4.5rem;
+  position: relative;
 }
 
-.form__container{
-    background-color: #090909;
-    padding: 41px 73px 31px 73px;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+.input__group__label {
+  color: var(--color-light);
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
 }
 
-.nput__group{
-    display: flex;
-    flex-direction: column;
+.info__label {
+  color: var(--color-light);
+  font-size: 2rem;
+  text-transform: uppercase;
+  display: block;
+  text-align: right;
+  margin-top: 1.5rem;
 }
 
-.input__group__label{
-    font-size: 2rem;
-    line-height: 46px;
-    color: white;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    font-family: 'Quantico', sans-serif;
+.input__group {
+  display: flex;
+  flex-direction: column;
 }
 
-.input__group__input{
-    width: 784px;
-    height: 107px;
-    font-size: 2.6rem;
-    line-height: 60px;
-    padding-left: 35px;
-    padding-right: 35px;
-    margin-bottom: 32px;
-    font-family: 'Quantico', sans-serif;
-    outline: 0; 
+.input__group__input {
+  height: 6.68rem;
+  font-size: 2.6rem;
+  color: var(--color-dark);
+  font-family: "Quantico", sans-serif;
+  padding-left: 2.1rem;
 }
 
-.info__label{
-    display: block;
-    align-self: flex-end;
-    color: white;
-    font-size: 2rem;
-    line-height: 46px;
-    margin-top: -14px;
-    margin-bottom: 28px;
-}
-
-.button__submit{
-    background-color: #029847;
-    font-size: 3.75rem;
-    line-height: 86px;
-    color: #fff;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 7px;
-    font-family: 'Quantico', sans-serif;
+.button__submit {
+  background-color: var(--color-green);
+  color: var(--color-light);
+  font-size: 3.75rem;
+  font-family: "Quantico", sans-serif;
+  margin-top: -5px;
+  margin-bottom: -3px;
+  padding: 0 1.6rem;
 }
 
 .button__submit:hover {
-    color: #090909;
-    cursor: pointer;
+  color: var(--color-dark);
 }
 
-.cross{
-    width: 36px;
-    height: 36px;
-    position: absolute;
-    right: 31px;
-    top: 31px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button__submit:active {
+  opacity: 0.7;
 }
 
-.btn__group{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.cross {
+  position: absolute;
+  right: 2.68rem;
+  top: 2.68rem;
+  z-index: 1;
 }
 
-.canchel_btn{
-    background-color: tomato;
+.cross:hover {
+  cursor: pointer;
 }
 
-@media (max-width: 1800px) {
-    /* .input__group__label{
-        font-size: 1.8rem;
-        line-height: 46px;
-        margin-bottom: 12px;
-    }
-
-    .form__container{
-        padding: 36px 62px 27px 62px;
-    } */
-/* } */
-
-/* @media (max-width: 1600px) {
-    .input__group__label{
-        font-size: 1.6rem;
-        line-height: 38px;
-        margin-bottom: 10px;
-    }
-
-    .form__container{
-        padding: 34px 60px 25px 60px;
-    }
-
-    .input__group__input{
-        width: 653px;
-        height: 89px;
-        font-size: 2.1rem;
-        line-height: 50px;
-        padding-left: 29px;
-        padding-right: 29px;
-        margin-bottom: 26px;
-    }
-    
-    .info__label{
-        font-size: 1.6rem;
-        line-height: 38px;
-        margin-top: -11px;
-        margin-bottom: 23px;
-    }
-    
-    .button__submit{
-        font-size: 3.1rem;
-        line-height: 71px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 5px;
-    }
+.cross:active {
+  opacity: 0.7;
 }
 
-@media (max-width: 1200px) {
-    .input__group__label{
-        font-size: 1.2rem;
-        line-height: 28px;
-        margin-bottom: 7px;
-    }
-
-    .form__container{
-        padding: 25px 45px 25px 45px;
-    }
-
-    .input__group__input{
-        width: 489px;
-        height: 66px;
-        font-size: 1.5rem;
-        line-height: 37px;
-        padding-left: 21px;
-        padding-right: 21px;
-        margin-bottom: 19px;
-    }
-    
-    .info__label{
-        font-size: 1.2rem;
-        line-height: 28px;
-        margin-top: -8px;
-        margin-bottom: 17px;
-    }
-    
-    .button__submit{
-        font-size: 2.3rem;
-        line-height: 53px;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 3px;
-    }
-
-    .cross{
-        width: 22px;
-        height: 22px;
-        right: 21px;
-        top: 21px;
-    }
+.btn__group {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
 
-@media (max-width: 900px) {
-    .input__group__label{
-        font-size: 0.9rem;
-        line-height: 21px;
-        margin-bottom: 5px;
-    }
-
-    .form__container{
-        padding: 18px 33px 18px 33px;
-    }
-
-    .input__group__input{
-        width: 366px;
-        height: 49px;
-        font-size: 1.1rem;
-        line-height: 27px;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-bottom: 14px;
-    }
-    
-    .info__label{
-        font-size: 0.9rem;
-        line-height: 21px;
-        margin-top: -6px;
-        margin-bottom: 12px;
-    }
-    
-    .button__submit{
-        font-size: 1.7rem;
-        line-height: 39px;
-        padding-left: 11px;
-        padding-right: 11px;
-        padding-bottom: 2px;
-    }
-
-    .cross{
-        width: 16px;
-        height: 16px;
-        right: 21px;
-        top: 21px;
-    }
+.canchel_btn {
+  background-color: brown;
+  margin-left: 1rem;
 }
-
-
-@media (max-width: 500px) {
-    .input__group__label{
-        font-size: 0.45rem;
-        line-height: 10px;
-        margin-bottom: 2.5px;
-    }
-
-    .form__container{
-        padding: 9px 16px 9px 16px;
-        border-radius: 13px;
-    }
-
-    .input__group__input{
-        width: 183px;
-        height: 25px;
-        font-size: 0.5rem;
-        line-height: 13px;
-        padding-left: 7px;
-        padding-right: 7px;
-        margin-bottom: 7px;
-    }
-    
-    .info__label{
-        font-size: 0.45rem;
-        line-height: 10px;
-        margin-top: -3px;
-        margin-bottom: 6px;
-    }
-    
-    .button__submit{
-        font-size: 0.8rem;
-        line-height: 20px;
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-bottom: 1px;
-    }
-
-    .cross{
-        width: 8px;
-        height: 8px;
-        right: 8px;
-        top: 10px;
-    }
-} */ 

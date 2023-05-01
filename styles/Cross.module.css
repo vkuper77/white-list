@@ -1,42 +1,46 @@
-/* .container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.wand{
-    height: 4px;
-    width: 36px;
-    background-color: white;
-    position: absolute;
+.container:hover {
+  cursor: pointer;
 }
 
-.first{
-    transform: rotate(45deg);
+.wand {
+  height: 4px;
+  width: 36px;
+  background-color: white;
+  position: absolute;
 }
 
-.second{
-    transform: rotate(135deg);
+.first {
+  transform: rotate(45deg);
+}
+
+.second {
+  transform: rotate(135deg);
 }
 
 @media (max-width: 1200px) {
-    .wand{
-        height: 2.5px;
-        width: 22.5px;
-    }
+  .wand {
+    height: 2.5px;
+    width: 22.5px;
+  }
 }
 
 @media (max-width: 900px) {
-    .wand{
-        height: 1.8px;
-        width: 16.8px;
-    }
+  .wand {
+    height: 1.8px;
+    width: 16.8px;
+  }
 }
 
 @media (max-width: 500px) {
-    .wand{
-        height: 0.9px;
-        width: 8.4px;
-    }
-} */
+  .wand {
+    height: 0.9px;
+    width: 8.4px;
+  }
+}

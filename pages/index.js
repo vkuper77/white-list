@@ -18,8 +18,7 @@ export default function Home() {
       <Safe/>
       <CashMachine/>
       <Description />
-      {/* <Form /> */}
-      {/* <Notification /> */}
+      <Notification />
     </div>
   );
 }
