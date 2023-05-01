@@ -1,17 +1,20 @@
-import { DESCRIPTION } from "@/src/constants/content-page"
-import styles from "@/styles/Description.module.css"
+import { DESCRIPTION } from "@/src/constants/content-page";
+import styles from "@/styles/Description.module.css";
 
 const Description = () => {
-    return <div id="description" className={styles.conatiner}>
-        <h1 className={styles.title}>Description</h1>
-        <div className={styles.main}>
-            {DESCRIPTION.map((info) =>  (<div key={info.id}>
-                        <h2 className={styles.sub__title}>{info.title}</h2>
-                        <p className={styles.text}>{info.text}</p>
-                    </div>))}
-        </div>
+  return (
+    <div id="description" className={`${styles.conatiner} _content`}>
+      <h3 className={styles.title}>Description</h3>
+      <div className={styles.main}>
+        {DESCRIPTION.map((info) => (
+          <div key={info.id}>
+            <span className={styles.sub__title}>{info.title}</span>
+            <span className={styles.text}>{info.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
-}
+  );
+};
 
-export default Description
-
+export default Description;

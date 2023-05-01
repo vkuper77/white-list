@@ -17,8 +17,7 @@ export default function Home() {
       <Petition />
       <Safe/>
       <CashMachine/>
-      {/* </Safe> */}
-      {/* <Description /> */}
+      <Description />
       {/* <Form /> */}
       {/* <Notification /> */}
     </div>
