@@ -60,6 +60,12 @@ body {
   --color-green: #029847;
 }
 
+@media(max-width: 2000px){
+  html,body {
+    font-size: 16.6px;
+  }
+}
+
 @media(max-width: 1800px){
   html,body {
     font-size: 15px;
@@ -111,6 +117,24 @@ body {
 @media(max-width: 1000px){
   html,body {
     font-size: 8.3px;
+  }
+}
+
+@media(max-width: 900px){
+  html,body {
+    font-size: 7.5px;
+  }
+}
+
+@media(max-width: 800px){
+  html,body {
+    font-size: 6.6px;
+  }
+}
+
+@media(max-width: 700px){
+  html,body {
+    font-size: 5.8px;
   }
 }
 

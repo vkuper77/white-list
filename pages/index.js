@@ -15,7 +15,7 @@ export default function Home() {
       <NavBar />
       <About />
       <Petition />
-      {/* <Safe> */}
+      <Safe/>
       {/* <CashMachine/> */}
       {/* </Safe> */}
       {/* <Description /> */}

@@ -66,6 +66,7 @@
   border-width: 0 3px 0 0;
   border-color: var(--color-dark);
   border-style: solid;
+  padding-bottom: 15rem;
 }
 
 .main___container__transaction__title {
