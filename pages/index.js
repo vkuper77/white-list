@@ -14,8 +14,8 @@ export default function Home() {
       <NavBar />
       <About />
       <Petition />
-      <Safe/>
-      <CashMachine/>
+      <Safe />
+      <CashMachine />
       <Description />
       <Notification />
     </div>
