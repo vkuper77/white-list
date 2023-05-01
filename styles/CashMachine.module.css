@@ -1,236 +1,55 @@
-/* .container{
-    position: absolute;
-    bottom: -470px;
-    margin-left: 11.02%;
-    margin-right: 12.66%;
+.wrapper {
+    margin-top: -16.8rem;
     z-index: 1;
-    left: 0;
-    right: 0;
 }
 
-.title{
+.container {
+    padding-left: 14.31rem;
+    padding-right: 15.1rem;
+}
+
+.title {
     font-size: 15rem;
-    line-height: 343px;
-    color: white;
+    color: var(--color-light);
 }
 
 .title__black{
-    color: #090909;
-    margin-top: -1.3%;
-    margin-bottom: 7.19%;
+    color: var(--color-dark);
+    margin-top: 0.5rem;
 }
 
-.exchange{
+.exchange {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    margin-top: 9.4rem;
+    padding-left: 1.25rem;
 }
 
-.exchange__button{
-    display: inline-block;
-    background-color: #029847;
-    color: #fff;
+.exchangee__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: -0.7rem;
+}
+
+.exchange__button {
+    background-color: var(--color-green);
+    color: var(--color-light);
     font-size: 6.1rem;
-    padding: 0 1.3% 1.46% 1.3%;
+    padding: 0rem 2rem 0.7rem 1.7rem;
 }
 
 .exchange__button:hover {
-    color: #090909;
     cursor: pointer;
+    color: var(--color-dark);
 }
 
-.exchange__info{
-    display: flex;
-    flex-direction: column;
+.exchange__button:active {
+    opacity: 0.7;
 }
 
 .exchange__info__text{
     display: block;
     font-size: 3rem;
-    line-height: 69px;
     text-align: right;
-    color: #090909;
 }
-
-
-@media (max-width: 1800px) {
-    .container{
-        bottom: -440px;
-    }
-
-    .title{
-        font-size: 13.5rem;
-        line-height: 308px;
-    }
-
-    .exchange__button{
-        font-size: 5.5rem;
-    }
-
-    .exchange__info__text{
-        font-size: 2.7rem;
-        line-height: 62px;
-    }
-}
-
-@media (max-width: 1700px) {
-    .container{
-        bottom: -400px;
-    }
-
-    .title{
-        font-size: 12rem;
-        line-height: 277px;
-    }
-
-    .exchange__button{
-        font-size: 4.9rem;
-    }
-
-    .exchange__info__text{
-        font-size: 2.4rem;
-        line-height: 55px;
-    }
-}
-
-@media (max-width: 1600px) {
-    .container{
-        bottom: -350px;
-    }
-
-    .exchange__button{
-        font-size: 4.4rem;
-    }
-
-    .title{
-        font-size: 10rem;
-        line-height: 249px;
-    }
-
-    .exchange__info__text{
-        font-size: 2.1rem;
-        line-height: 49px;
-    }
-}
-
-@media (max-width: 1500px) {
-
-    .container{
-        bottom: -300px;
-    }
-
-    .exchange__button{
-        font-size: 3.9rem;
-    }
-
-    .title{
-        font-size: 9rem;
-        line-height: 224px;
-    }
-
-    .exchange__info__text{
-        font-size: 1.8rem;
-        line-height: 44px;
-    }
-}
-
-@media (max-width: 1200px) {
-
-    .container{
-        bottom: -250px;
-    }
-
-    .exchange__button{
-        font-size: 3.5rem;
-    }
-
-    .title{
-        font-size: 8rem;
-        line-height: 201px;
-    }
-
-    .exchange__info__text{
-        font-size: 1.6rem;
-        line-height: 39px;
-    }
-}
-
-@media (max-width: 1100px) {
-    .exchange__button{
-        font-size: 3.1rem;
-    }
-
-    .title{
-        font-size: 7.2rem;
-        line-height: 180px;
-    }
-
-    .exchange__info__text{
-        font-size: 1.4rem;
-        line-height: 35px;
-    }
-}
-
-
-@media (max-width: 900px) {
-
-    .container{
-        bottom: -200px;
-    }
-
-    .exchange__button{
-        font-size: 2.5rem;
-    }
-
-    .title{
-        font-size: 5.7rem;
-        line-height: 144px;
-    }
-
-    .exchange__info__text{
-        font-size: 1.1rem;
-        line-height: 28px;
-    }
-}
-
-@media (max-width: 750px) {
-
-    .container{
-        bottom: -150px;
-    }
-
-    .exchange__button{
-        font-size: 2rem;
-    }
-
-    .title{
-        font-size: 4.5rem;
-        line-height: 115px;
-    }
-
-    .exchange__info__text{
-        font-size: 0.8rem;
-        line-height: 22px;
-    }
-}
-
-@media (max-width: 550px) {
-    .container{
-        bottom: -100px;
-    }
-    
-    .exchange__button{
-        font-size: 1.4rem;
-    }
-
-    .title{
-        font-size: 3.1rem;
-        line-height: 80px;
-    }
-
-    .exchange__info__text{
-        font-size: 0.5rem;
-        line-height: 15px;
-    }
-} */

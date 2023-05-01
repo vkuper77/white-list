@@ -40,9 +40,11 @@
   position: absolute;
   height: 61.6rem;
   top: 9rem;
-  right: 0;
-  left: 0;
+  right: -50rem;
+  left: -50rem;
   z-index: -1;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 
 .cards {

@@ -60,7 +60,7 @@ body {
   --color-green: #029847;
 }
 
-@media(max-width: 2000px){
+@media(min-width: 2000px){
   html,body {
     font-size: 16.6px;
   }

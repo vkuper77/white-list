@@ -16,7 +16,7 @@ export default function Home() {
       <About />
       <Petition />
       <Safe/>
-      {/* <CashMachine/> */}
+      <CashMachine/>
       {/* </Safe> */}
       {/* <Description /> */}
       {/* <Form /> */}
