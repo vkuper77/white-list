@@ -142,6 +142,13 @@ input::-webkit-inner-spin-button {
   }
 }
 
+@media (max-width: 850px) {
+  html,
+  body {
+    font-size: 7.08px;
+  }
+}
+
 @media (max-width: 800px) {
   html,
   body {
@@ -149,9 +156,93 @@ input::-webkit-inner-spin-button {
   }
 }
 
+@media (max-width: 750px) {
+  html,
+  body {
+    font-size: 6.25px;
+  }
+}
+
 @media (max-width: 700px) {
   html,
   body {
     font-size: 5.8px;
+  }
+}
+
+@media (max-width: 650px) {
+  html,
+  body {
+    font-size: 5.41px;
+  }
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 550px) {
+  html,
+  body {
+    font-size: 4.58px;
+  }
+}
+
+@media (max-width: 500px) {
+  html,
+  body {
+    font-size: 4.16px;
+  }
+}
+
+@media (max-width: 470px) {
+  html,
+  body {
+    font-size: 3.9px;
+  }
+}
+
+@media (max-width: 440px) {
+  html,
+  body {
+    font-size: 3.6px;
+  }
+}
+
+@media (max-width: 400px) {
+  html,
+  body {
+    font-size: 3.3px;
+  }
+}
+
+@media (max-width: 375px) {
+  html,
+  body {
+    font-size: 3.1px;
+  }
+}
+
+@media (max-width: 350px) {
+  html,
+  body {
+    font-size: 2.9px;
+  }
+}
+
+@media (max-width: 330px) {
+  html,
+  body {
+    font-size: 2.7px;
+  }
+}
+
+@media (max-width: 300px) {
+  html,
+  body {
+    font-size: 2.5px;
   }
 }

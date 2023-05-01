@@ -26,7 +26,7 @@
 .button {
   background-color: var(--color-green);
   margin-top: 2.7rem;
-  padding: 0 20px 14px 21px;
+  padding: 0 1.25rem 0.87rem 1.31rem;
 }
 
 .button > span {

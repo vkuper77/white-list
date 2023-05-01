@@ -30,7 +30,7 @@
     background-color: var(--color-green);
     align-self: start;
     margin: 14.4rem 0 0 7.2rem;
-    padding: 8px 6px 20px 6px;
+    padding: 0.5rem 0.375rem 1.25rem 0.375rem;
 }
 
 .button > span {
