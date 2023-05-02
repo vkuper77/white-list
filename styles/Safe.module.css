@@ -93,9 +93,18 @@
   margin-top: 2.16rem;
 }
 
+.button__disabled {
+  background-color: var(--color-light-dark);
+}
+
 .button:hover {
-  color: #090909;
+  color: var(--color-dark);
   cursor: pointer;
+}
+
+.button__disabled:hover {
+  cursor: not-allowed;
+  color: var(--color-light);
 }
 
 .ellipse__footer__left {

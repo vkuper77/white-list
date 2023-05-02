@@ -4,7 +4,7 @@ import { deleteNotificationInfo, setNotificationInfo } from "../store/slice/appS
 export function middlewareContract(callback) {
     return () => {
       if(typeof callback !== 'function') {
-        store.dispatch(setNotificationInfo({id: 'middlewareContract', autoHide: false, position: 'top', text: 'Please join the Goerli test Network or install Ganache...', url: null}))  
+        store.dispatch(setNotificationInfo({id: 'middlewareContract', autoHide: false, position: 'top', text: 'Please join the Sepolia test Network or install Ganache...', url: null}))  
         return 
       }
       store.dispatch(deleteNotificationInfo('middlewareContract'))
