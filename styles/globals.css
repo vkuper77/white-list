@@ -58,6 +58,7 @@ body {
   --color-dark: #090909;
   --color-light-dark: #535252;
   --color-green: #029847;
+  --color-danger: #781010;
 }
 
 input::-webkit-outer-spin-button,
