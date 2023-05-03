@@ -6,7 +6,6 @@ import Notification from "@/src/components/UI/Notification";
 import Petition from "@/src/components/Petition/Petition";
 import Safe from "@/src/components/Safe/Safe";
 import Tips from "@/src/components/UI/Tips";
-import { useEffect } from "react";
 import { useScrollAnchors } from "@/src/hooks/use-scroll-anchors";
 
 export default function Home() {
