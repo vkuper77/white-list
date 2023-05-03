@@ -4,8 +4,8 @@ import Wallet from "./Wallet/Wallet";
 
 const Safe = ({ children }) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={`${styles.card} _content`} id="safe">
+    <div className={styles.wrapper} id="safe">
+      <div className={`${styles.card} _content`}>
         <h3 className={styles.card__title}>Safe</h3>
         <span className={styles.card__subtitle}>Helps people to stay HODL</span>
         <span className={styles.card__subtitle}>through the bear market</span>
